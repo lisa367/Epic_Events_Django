@@ -1,0 +1,16 @@
+asgiref==3.8.1
+backports.zoneinfo==0.2.1
+certifi==2024.2.2
+Django==4.2.11
+exceptiongroup==1.2.0
+iniconfig==2.0.0
+packaging==24.0
+pluggy==1.4.0
+pytest==8.1.1
+pytest-django==4.8.0
+python-dotenv==1.0.1
+sentry-sdk==1.43.0
+sqlparse==0.4.4
+tomli==2.0.1
+typing_extensions==4.10.0
+urllib3==2.2.1
