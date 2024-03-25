@@ -48,8 +48,6 @@ class CustomUserManager(UserManager):
         return self._create_user(prenom, nom, departement, **extra_fields)
 
 
-
-
 class Employee(AbstractUser):
 
     OPTIONS  = [
@@ -66,7 +64,7 @@ class Employee(AbstractUser):
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = "employee_ref"
-    REQUIRED_FIELDS = ["prenom", "nom"]
+    REQUIRED_FIELDS = ["prenom", "nom", "departement"]
 
     objects = CustomUserManager()
 
