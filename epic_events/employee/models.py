@@ -68,5 +68,13 @@ class Employee(AbstractUser):
 
     objects = CustomUserManager()
 
+    def __str__(self):
+        return f"Collaborateur : {self.prenom} {self.nom.upper()} - {self.departement.title()}"
+    
+    def __repr__(self):
+        return f"Collaborateur : {self.prenom} {self.nom.upper()} - {self.departement.title()}"
+
+
     class Meta:
         verbose_name = "Collaborateur"
+        verbose_name_plural = "Collaborateurs"
