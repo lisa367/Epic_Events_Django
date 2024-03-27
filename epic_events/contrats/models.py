@@ -11,3 +11,9 @@ class Contrat(models.Model):
     statut = models.CharField()
     client_id = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
     collaborateur_id = models.ForeignKey(Employee,)
+
+    def __str__(self) -> str:
+        return f"Contrat : n˚{self.id} - client id {self.client_id}"
+    
+    def __repr__(self) -> str:
+        return f"Contrat : n˚{self.id} - client id {self.client_id}"
