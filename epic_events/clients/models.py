@@ -10,4 +10,10 @@ class Client(models.Model):
     date_premier_contact = models.DateField()
     date_dernier_contact = models.DateField()
     contact_commercial = models.CharField(max_length=128)
-    collaborateur_id = models.ForeignKey(Employee, on_delete=models.DO_NOTHING)
+    collaborateur_id = models.ForeignKey(Employee, on_delete=models.RESTRICT)
+
+    def __str__(self) -> str:
+        return f"Client: n˚{self.id} - {self.nom_complet}"
+    
+    def __repr__(self) -> str:
+        return f"Client: n˚{self.id} - {self.nom_complet}"
