@@ -15,3 +15,9 @@ class Evenement(models.Model):
     contact_support = models.CharField(max_length=128)
     contrat_id = models.ForeignKey(Contrat)
     collaborateur_support_id = models.ForeignKey(Employee)
+
+    def __str__(self) -> str:
+        return f"Evenement : {self.nom_evenement} ({self.date_debut} - {self.date_fin})"
+    
+    def __str__(self) -> str:
+        return f"Evenement : {self.nom_evenement} ({self.date_debut} - {self.date_fin})"
