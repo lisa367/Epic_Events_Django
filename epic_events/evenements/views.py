@@ -1,3 +1,38 @@
 from django.shortcuts import render
+from django.views.generic.detail import DetailView
+from django.views.generic.list import ListView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-# Create your views here.
+from .models import Evenement
+
+class ClientDetailView(DetailView):
+    model = Evenement
+    template_name = 'evenements/evenement.html'
+    context_object_name = "evenement"
+
+
+class ClientListView(ListView):
+    model = Evenement
+    template_name = "evenements/evenements_list.html"
+
+    def get_queryset(self):
+        super().get_queryset()
+        clients = Evenement.objects.filter(collaborateur_id=self.request.user.id)
+
+        return clients
+
+
+class ClientCreateView(CreateView):
+    model = Evenement
+    template_name = "evenements/create.html"
+    form_class = ''
+
+
+class ClientUpdateView(UpdateView):
+    model = Evenement
+    template_name = "evenements/update.html"
+
+
+class ClientDeleteView(DeleteView):
+    model = Evenement
+    template_name = "evenements/delete.html"
