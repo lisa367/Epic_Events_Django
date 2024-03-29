@@ -5,6 +5,7 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Client
 
+
 class ClientDetailView(DetailView):
     model = Client
     template_name = 'clients/client.html'
@@ -20,7 +21,13 @@ class ClientListView(ListView):
         clients = Client.objects.filter(collaborateur_id=self.request.user.id)
 
         return clients
-    
+
+
+class ClientCreateView(UpdateView):
+    model = Client
+    template_name = "clients/create.html"
+    form_class = ''
+
 
 class ClientUpdateView(UpdateView):
     model = Client
@@ -29,7 +36,7 @@ class ClientUpdateView(UpdateView):
 
 class ClientDeleteView(DeleteView):
     model = Client
-    template_name = "clients/update.html"
+    template_name = "clients/delete.html"
     
 
 def see_all_clients(request):
