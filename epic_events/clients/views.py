@@ -15,6 +15,7 @@ class ClientDetailView(DetailView):
 class ClientListView(ListView):
     model = Client
     template_name = "clients/clients_list.html"
+    context_object_name = "clients"
 
     def get_queryset(self):
         super().get_queryset()
@@ -23,7 +24,7 @@ class ClientListView(ListView):
         return clients
 
 
-class ClientCreateView(UpdateView):
+class ClientCreateView(CreateView):
     model = Client
     template_name = "clients/create.html"
     form_class = ''

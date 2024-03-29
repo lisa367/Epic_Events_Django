@@ -15,6 +15,7 @@ class ClientDetailView(DetailView):
 class ClientListView(ListView):
     model = Contrat
     template_name = "contrats/contrats_list.html"
+    context_object_name = "contrats"
 
     def get_queryset(self):
         super().get_queryset()
