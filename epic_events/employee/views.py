@@ -5,6 +5,12 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from models import Employee
 
 
+class EmployeeListView(ListView):
+    model = Employee
+    template_name = "employee/employees_list.html"
+    context_object_name = "employees"
+
+
 class EmployeeCreateView(CreateView):
     model = Employee
     template_name = "employee/create.html"
