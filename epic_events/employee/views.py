@@ -3,7 +3,9 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from evenements.views import upcoming_events
+from evenements.views import upcoming_events, employee_events
+from clients.views import employee_clients
+from contrats.views import employee_contrats
 from models import Employee
 from .forms import EmployeeForm, EmployeePasswordForm
 
@@ -52,9 +54,9 @@ def employee_homepage(request):
     context_data["employee_data"] = employee_data
 
     if employee_data["departement"] == "Commercial" :
-        context_data["employee_clients"] = ''
-        context_data["employee_contrats"] = ''
+        context_data["employee_clients"] = employee_clients(request.user.id)
+        context_data["employee_contrats"] = employee_contrats(request.user.id)
     elif employee_data["departement"] == "Support" :
-        context_data["employee_events"] = ''
+        context_data["employee_events"] = employee_events(request.user.id)
 
     return render(request, "employee/employee_homepage.html", context=context_data)
