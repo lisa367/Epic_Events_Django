@@ -17,12 +17,6 @@ class ClientListView(ListView):
     template_name = "contrats/contrats_list.html"
     context_object_name = "contrats"
 
-    def get_queryset(self):
-        super().get_queryset()
-        clients = Contrat.objects.filter(collaborateur_id=self.request.user.id)
-
-        return clients
-
 
 class ClientCreateView(CreateView):
     model = Contrat
@@ -38,3 +32,8 @@ class ClientUpdateView(UpdateView):
 class ClientDeleteView(DeleteView):
     model = Contrat
     template_name = "contrats/delete.html"
+
+
+def employee_contrats(employee_id):
+    filtered_contrats = Contrat.objects.filter(client_id__collaborateur_id=employee_id)
+    return filtered_contrats
