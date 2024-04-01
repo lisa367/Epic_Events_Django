@@ -52,8 +52,9 @@ def employee_homepage(request):
     context_data["employee_data"] = employee_data
 
     if employee_data["departement"] == "Commercial" :
-        context_data["responsabilities"] = ''
+        context_data["employee_clients"] = ''
+        context_data["employee_contrats"] = ''
     elif employee_data["departement"] == "Support" :
-        context_data["responsabilities"] = ''
+        context_data["employee_events"] = ''
 
     return render(request, "employee/employee_homepage.html", context=context_data)
