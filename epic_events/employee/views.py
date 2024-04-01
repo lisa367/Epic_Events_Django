@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from evenements.views import upcoming_events
 from models import Employee
 from .forms import EmployeeForm, EmployeePasswordForm
 
@@ -10,6 +12,12 @@ class EmployeeListView(ListView):
     model = Employee
     template_name = "employee/employees_list.html"
     context_object_name = "employees"
+
+
+class EmployeeDetailView(DetailView):
+    model = Employee
+    template_name = "employee/employee_detail.html"
+    context_object_name = "employee"
 
 
 class EmployeeCreateView(CreateView):
@@ -33,3 +41,20 @@ class EmployeePasswordUpdateView(UpdateView):
 class EmployeeDeleteView(UpdateView):
     model = Employee
     template_name = "employee/update.html"
+
+
+def employee_homepage(request):
+    context_data = {}
+    context_data["next_events"] = upcoming_events()
+
+    employee_data = Employee.objects.get(id=request.user.id)
+    context_data["employee_data"] = employee_data
+
+    if employee_data["departement"] == "Gestion" :
+        pass
+    elif employee_data["departement"] == "Commercial" :
+        pass
+    elif employee_data["departement"] == "Support" :
+        pass
+
+    return render(request, "employee/employee_homepage.html", context=context_data)
