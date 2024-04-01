@@ -43,6 +43,7 @@ class EmployeeDeleteView(UpdateView):
     template_name = "employee/update.html"
 
 
+# @login_required
 def employee_homepage(request):
     context_data = {}
     context_data["next_events"] = upcoming_events()
@@ -50,11 +51,9 @@ def employee_homepage(request):
     employee_data = Employee.objects.get(id=request.user.id)
     context_data["employee_data"] = employee_data
 
-    if employee_data["departement"] == "Gestion" :
-        pass
-    elif employee_data["departement"] == "Commercial" :
-        pass
+    if employee_data["departement"] == "Commercial" :
+        context_data["responsabilities"] = ''
     elif employee_data["departement"] == "Support" :
-        pass
+        context_data["responsabilities"] = ''
 
     return render(request, "employee/employee_homepage.html", context=context_data)
