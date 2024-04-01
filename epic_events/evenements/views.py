@@ -1,3 +1,4 @@
+from datetime import date, datetime as dt
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
@@ -37,3 +38,9 @@ class ClientUpdateView(UpdateView):
 class ClientDeleteView(DeleteView):
     model = Evenement
     template_name = "evenements/delete.html"
+
+
+def upcoming_events():
+    today = date(dt.now())
+    ten_next_events = Evenement.objects.filter(date_debut__gte=today)[:10]
+    return ten_next_events
