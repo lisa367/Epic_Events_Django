@@ -17,12 +17,6 @@ class ClientListView(ListView):
     template_name = "clients/clients_list.html"
     context_object_name = "clients"
 
-    def get_queryset(self):
-        super().get_queryset()
-        clients = Client.objects.filter(collaborateur_id=self.request.user.id)
-
-        return clients
-
 
 class ClientCreateView(CreateView):
     model = Client
@@ -38,8 +32,8 @@ class ClientUpdateView(UpdateView):
 class ClientDeleteView(DeleteView):
     model = Client
     template_name = "clients/delete.html"
-    
 
-def see_all_clients(request):
-    all_clients = Client.objects.all()
-    return render(request, template_name='', context=all_clients)
+
+def employee_clients(employee_id):
+    filtered_clients = Client.objects.filter(collaborateur_id=employee_id)
+    return filtered_clients
