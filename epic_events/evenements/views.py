@@ -44,3 +44,8 @@ def upcoming_events():
     today = date(dt.now())
     ten_next_events = Evenement.objects.filter(date_debut__gte=today)[:10]
     return ten_next_events
+
+
+def employee_events(employee_id):
+    filtered_events = Evenement.objects.filter(collaborateur_id=employee_id)
+    return filtered_events
