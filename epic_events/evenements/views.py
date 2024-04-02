@@ -6,13 +6,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Evenement
 
-class ClientDetailView(DetailView):
+class EvenementDetailView(DetailView):
     model = Evenement
     template_name = 'evenements/evenement.html'
     context_object_name = "evenement"
 
 
-class ClientListView(ListView):
+class EvenementListView(ListView):
     model = Evenement
     template_name = "evenements/evenements_list.html"
     context_object_name = "evenements"
@@ -24,18 +24,18 @@ class ClientListView(ListView):
         return clients
 
 
-class ClientCreateView(CreateView):
+class EvenementCreateView(CreateView):
     model = Evenement
     template_name = "evenements/create.html"
     form_class = ''
 
 
-class ClientUpdateView(UpdateView):
+class EvenementUpdateView(UpdateView):
     model = Evenement
     template_name = "evenements/update.html"
 
 
-class ClientDeleteView(DeleteView):
+class EvenementDeleteView(DeleteView):
     model = Evenement
     template_name = "evenements/delete.html"
 
