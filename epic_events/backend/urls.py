@@ -17,9 +17,13 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('/'),
-    path('employees/', include('employee.urls')),
+    path('epic-admin/', admin.site.urls),
+    path("queries/"),
+    path('employee/', include('employee.urls')),
+    path('clients/', include('clients.urls')),
+    path('contrats/', include('contrats.urls')),
+    path('evenements/', include('evenements.urls')),
 ]
 
 """ 
