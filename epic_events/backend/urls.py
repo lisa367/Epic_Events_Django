@@ -16,14 +16,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from .views import make_queries
+
 urlpatterns = [
     path('/'),
     path('epic-admin/', admin.site.urls),
-    path("queries/"),
     path('employee/', include('employee.urls')),
     path('clients/', include('clients.urls')),
     path('contrats/', include('contrats.urls')),
     path('evenements/', include('evenements.urls')),
+    path("queries/", make_queries, name="make-queries"),
 ]
 
 """ 
