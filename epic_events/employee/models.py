@@ -51,16 +51,16 @@ class CustomUserManager(UserManager):
 class Employee(AbstractUser):
 
     OPTIONS  = [
-        ("gestion", "Gestion"),
-        ("commercial", "Commercial"),
-        ("support", "Support"),
+        ("Gestion", "Gestion"),
+        ("Commercial", "Commercial"),
+        ("Support", "Support"),
     ]
 
     employee_ref = models.CharField(max_length=10)
     prenom = models.CharField(max_length=128)
     nom = models.CharField(max_length=128)
     departement = models.CharField(max_length=128, choices=OPTIONS)
-    role = models.CharField(max_length=256, blank=True, default=True)
+    role = models.CharField(max_length=256, blank=True)
     email = models.EmailField(unique=True)
 
     USERNAME_FIELD = "employee_ref"

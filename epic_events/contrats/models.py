@@ -5,12 +5,12 @@ from clients.models import Client
 
 class Contrat(models.Model):
     contact_commercial = models.CharField(max_length=128)
-    montant_facture = models.DecimalField()
-    montant_redevable = models.DecimalField()
+    montant_facture = models.DecimalField(default=0.0)
+    montant_redevable = models.DecimalField(default=0.0)
     date_creation = models.DateField()
-    statut = models.CharField()
-    client_id = models.ForeignKey(Client, on_delete=models.SET_NULL, null=True)
-    collaborateur_id = models.ForeignKey(Employee,)
+    statut = models.CharField(max_length=256)
+    client_id = models.ForeignKey(Client, on_delete=models.RESTRICT, blank=True)
+    collaborateur_id = models.ForeignKey(Employee, on_delete=models.RESTRICT, blank=True)
 
     def __str__(self) -> str:
         return f"Contrat : n˚{self.id} - client id {self.client_id}"
