@@ -7,3 +7,10 @@ def make_queries(request):
     return render(request, "backends/make_queries.html")
 
 
+class QueryForm(Form):
+    TABLE_CHOICE = [
+        ("", ""),
+    ]
+    COLUMN_CHOICE = [
+        ("", ""),
+    ]
