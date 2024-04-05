@@ -1,6 +1,10 @@
 from django.shortcuts import render
 from django.forms import Form
 
+from clients.models import Client
+from contrats.models import Contrat
+from evenements.models import Evenement
+
 
 # @login_required
 def make_queries(request):
