@@ -13,19 +13,20 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import make_queries
+from .views import query_table
 
 urlpatterns = [
-    path('/'),
-    path('epic-admin/', admin.site.urls),
-    path('employee/', include('employee.urls')),
-    path('clients/', include('clients.urls')),
-    path('contrats/', include('contrats.urls')),
-    path('evenements/', include('evenements.urls')),
-    path("queries/", make_queries, name="make-queries"),
+    path("/"),
+    path("epic-admin/", admin.site.urls),
+    path("employee/", include("employee.urls")),
+    path("clients/", include("clients.urls")),
+    path("contrats/", include("contrats.urls")),
+    path("evenements/", include("evenements.urls")),
+    path("queries/", query_table, name="make-queries"),
 ]
 
 """ 

@@ -1,5 +1,8 @@
+from typing import Any, Mapping
+from django.forms.renderers import BaseRenderer
+from django.forms.utils import ErrorList
 from django.shortcuts import render
-from django.forms import Form
+from django import forms
 
 from clients.models import Client
 from contrats.models import Contrat
@@ -7,14 +10,32 @@ from evenements.models import Evenement
 
 
 # @login_required
-def make_queries(request):
+def query_table(request):
     return render(request, "backends/make_queries.html")
 
 
-class QueryForm(Form):
+class QueryForm(forms.Form):
+
     TABLE_CHOICE = [
         ("", ""),
     ]
     COLUMN_CHOICE = [
         ("", ""),
     ]
+
+    def __init__(self, table_name):
+        super().__init__()
+        self.TABLE_CHOICE = [
+            (f"{table_name}", f"{table_name}"),
+        ]
+        self.COLUMN_CHOICE = [
+            (f"{column}", f"{column}") for column in self.TABLE_CHOICE.meta.fields
+        ]
+        """
+        self.COLUMN_CHOICE = [
+        (f"{column}", f"{column}") for column in self.TABLE_CHOICE.meta.fields
+    ]
+        """
+
+    table = forms.ChoiceField()
+    column_name = forms.ChoiceField()
