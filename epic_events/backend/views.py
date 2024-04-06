@@ -29,11 +29,11 @@ class QueryForm(forms.Form):
             (f"{table_name}", f"{table_name}"),
         ]
         self.COLUMN_CHOICE = [
-            (f"{column}", f"{column}") for column in self.TABLE_CHOICE.meta.fields
+            (f"{field}", f"{field}") for field in self.TABLE_CHOICE.meta.fields
         ]
         """
         self.COLUMN_CHOICE = [
-        (f"{column}", f"{column}") for column in self.TABLE_CHOICE.meta.fields
+        (f"{field.name}", f"{field.name}") for field in self.TABLE_CHOICE.meta.get_fields()
     ]
         """
 
