@@ -15,14 +15,14 @@ def query_table(request):
 
 
 class QueryForm(forms.Form):
-    """ 
+    
     TABLE_CHOICE = [
         ("", ""),
     ]
     COLUMN_CHOICE = [
         ("", ""),
     ]
-     """
+    
 
     def __init__(self, table_name, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -38,5 +38,6 @@ class QueryForm(forms.Form):
     ]
         """
 
-    table = forms.ChoiceField()
-    column_name = forms.ChoiceField()
+    # table = forms.ChoiceField()
+    column_name = forms.ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
+    column_value = forms.CharField(max_length=256, label="Valeur")
