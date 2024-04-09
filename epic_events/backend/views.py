@@ -17,7 +17,11 @@ def query_table(request):
 class QueryForm(forms.Form):
     
     TABLE_CHOICE = [
+        (Client, "Clients"),
+        (Contrat, "Contrats"),
+        (Evenement, "Evenements"),
         ("", ""),
+
     ]
     COLUMN_CHOICE = [
         ("", ""),
