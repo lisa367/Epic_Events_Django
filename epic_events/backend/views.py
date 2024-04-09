@@ -20,7 +20,6 @@ class QueryForm(forms.Form):
         (Client, "Clients"),
         (Contrat, "Contrats"),
         (Evenement, "Evenements"),
-        ("", ""),
 
     ]
     COLUMN_CHOICE = [
