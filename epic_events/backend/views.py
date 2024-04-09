@@ -21,6 +21,7 @@ class QueryForm(forms.Form):
     ]
     COLUMN_CHOICE = [
         ("", ""),
+        (f"{field}", f"{field}") for field in TABLE_CHOICE.meta.fields
     ]
     
 
