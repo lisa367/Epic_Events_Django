@@ -11,14 +11,23 @@ def query_table(request):
     return render(request, "backends/make_queries.html")
 
 
-class QueryForm(forms.Form):
-    
+class TableForm(forms.Form):
     TABLE_CHOICE = [
         (Client, "Clients"),
         (Contrat, "Contrats"),
         (Evenement, "Evenements"),
 
     ]
+
+
+class QueryForm(forms.Form):
+    
+    TABLE_CHOICE = [
+        (Client, "Clients"),
+        (Contrat, "Contrats"),
+        (Evenement, "Evenements"),
+    ]
+   
     COLUMN_CHOICE = [
         ("", ""),
         (f"{field}", f"{field}") for field in TABLE_CHOICE.meta.fields
