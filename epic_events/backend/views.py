@@ -20,6 +20,10 @@ class TableForm(forms.Form):
     ]
 
 
+class CustomField(forms.Field):
+    pass
+
+
 class QueryForm(forms.Form):
     
     TABLE_CHOICE = [
@@ -41,6 +45,9 @@ class QueryForm(forms.Form):
         ]
         self.COLUMN_CHOICE = [
             (f"{field}", f"{field}") for field in self.TABLE_CHOICE.meta.fields
+        ]
+        self.COLUMN_CHOICE = [
+            (f"{field}", f"{field}") for field in table_name.meta.fields
         ]
         """
         self.COLUMN_CHOICE = [
