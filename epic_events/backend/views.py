@@ -58,3 +58,14 @@ class QueryForm(forms.Form):
     # table = forms.ChoiceField()
     column_name = forms.ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
     column_value = forms.CharField(max_length=256, label="Valeur")
+
+
+def make_query_form(table_name):
+    class QueryForm(forms.Form):
+        COLUMN_CHOICE = [
+            ("", ""),
+            (f"{field}", f"{field}") for field in table_name.meta.fields
+        ]
+
+        column_name = forms.ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
+        column_value = forms.CharField(max_length=256, label="Valeur")
