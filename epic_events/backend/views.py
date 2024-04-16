@@ -69,3 +69,5 @@ def make_query_form(table_name):
 
         column_name = forms.ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
         column_value = forms.CharField(max_length=256, label="Valeur")
+    
+    return QueryForm
