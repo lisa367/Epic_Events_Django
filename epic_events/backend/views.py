@@ -6,11 +6,6 @@ from contrats.models import Contrat
 from evenements.models import Evenement
 
 
-# @login_required
-def query_table(request):
-    return render(request, "backends/make_queries.html")
-
-
 class TableForm(forms.Form):
     TABLE_CHOICE = [
         (Client, "Clients"),
@@ -71,3 +66,14 @@ def make_query_form(table_name):
         column_value = forms.CharField(max_length=256, label="Valeur")
     
     return QueryForm()
+
+
+# @login_required
+def choose_table(request):
+    return render(request, "backends/choose_table.html")
+
+
+
+# @login_required
+def query_table(request):
+    return render(request, "backends/query_table.html")
