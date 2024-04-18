@@ -6,7 +6,7 @@ from evenements.models import Evenement
 
 
 
-
+""" 
 class TableForm(forms.Form):
     TABLE_CHOICE = [
         (Client, "Clients"),
@@ -18,7 +18,7 @@ class TableForm(forms.Form):
 
 class CustomField(forms.Field):
     pass
-
+"""
 
 class QueryForm(forms.Form):
     
@@ -67,3 +67,13 @@ def make_query_form(table_name):
         column_value = forms.CharField(max_length=256, label="Valeur")
     
     return QueryForm()
+
+
+class QueryForm2(forms.Form):
+    #
+    def __init__(self, table_name, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.COLUMN_CHOICES = [(f"{field}", f"{field}") for field in table_name.meta.fields]
+        self.fields["column_name"] = forms.ChoiceField(choices=self.COLUMN_CHOICES, label="Colonne")
+        self.fields["column_value"] = forms.CharField(max_length=256, label="Valeur")
+        
