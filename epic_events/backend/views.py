@@ -75,5 +75,7 @@ def choose_table(request):
 
 
 # @login_required
-def query_table(request):
+def query_table(request, table_name):
+    if request.method == "POST":
+        QueryFormSet = forms.formset_factory(QueryForm)
     return render(request, "backends/query_table.html")
