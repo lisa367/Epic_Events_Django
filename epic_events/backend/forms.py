@@ -1,4 +1,5 @@
-from django import forms
+from django.forms import Form, CharField, ChoiceField
+from django.forms.formsets import BaseFormSet
 
 from clients.models import Client
 from contrats.models import Contrat
@@ -20,7 +21,7 @@ class CustomField(forms.Field):
     pass
 """
 
-class QueryForm(forms.Form):
+class QueryForm(Form):
     
     TABLE_CHOICE = [
         (Client, "Clients"),
@@ -52,28 +53,28 @@ class QueryForm(forms.Form):
         """
 
     # table = forms.ChoiceField()
-    column_name = forms.ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
-    column_value = forms.CharField(max_length=256, label="Valeur")
+    column_name = ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
+    column_value = CharField(max_length=256, label="Valeur")
 
 
 def make_query_form(table_name):
-    class QueryForm(forms.Form):
+    class QueryForm(Form):
         COLUMN_CHOICE = [
             ("", ""),
             (f"{field}", f"{field}") for field in table_name.meta.fields
         ]
 
-        column_name = forms.ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
-        column_value = forms.CharField(max_length=256, label="Valeur")
+        column_name = ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
+        column_value = CharField(max_length=256, label="Valeur")
     
     return QueryForm()
 
 
-class QueryForm2(forms.Form):
+class QueryForm2(Form):
     #
     def __init__(self, table_name, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.COLUMN_CHOICES = [(f"{field}", f"{field}") for field in table_name.meta.fields]
-        self.fields["column_name"] = forms.ChoiceField(choices=self.COLUMN_CHOICES, label="Colonne")
-        self.fields["column_value"] = forms.CharField(max_length=256, label="Valeur")
+        self.fields["column_name"] = ChoiceField(choices=self.COLUMN_CHOICES, label="Colonne")
+        self.fields["column_value"] = CharField(max_length=256, label="Valeur")
         
