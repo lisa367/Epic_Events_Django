@@ -3,10 +3,10 @@ from django.forms import formset_factory
 
 from .forms import QueryForm
 
+
 # @login_required
 def choose_table(request):
     return render(request, "backends/choose_table.html")
-
 
 
 # @login_required

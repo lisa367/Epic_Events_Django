@@ -77,4 +77,8 @@ class QueryForm2(Form):
         self.COLUMN_CHOICES = [(f"{field}", f"{field}") for field in table_name.meta.fields]
         self.fields["column_name"] = ChoiceField(choices=self.COLUMN_CHOICES, label="Colonne")
         self.fields["column_value"] = CharField(max_length=256, label="Valeur")
+
+
+class QueryFormSet(BaseFormSet):
+    pass
         
