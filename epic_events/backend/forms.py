@@ -1,3 +1,4 @@
+from typing import Any
 from django.forms import Form, CharField, ChoiceField
 from django.forms.formsets import BaseFormSet
 
@@ -80,5 +81,6 @@ class QueryForm2(Form):
 
 
 class QueryFormSet(BaseFormSet):
-    pass
+    def get_form_kwargs(self, index):
+        return super().get_form_kwargs(index)
         
