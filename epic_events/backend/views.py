@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.forms import formset_factory
 
-from .forms import QueryForm
+from .forms import QueryForm, QueryFormSet
 
 
 # @login_required
