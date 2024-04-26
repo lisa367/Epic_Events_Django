@@ -22,7 +22,7 @@ class CustomField(forms.Field):
     pass
 """
 
-class QueryForm(Form):
+class QueryForm_old(Form):
     
     TABLE_CHOICE = [
         (Client, "Clients"),
@@ -37,7 +37,7 @@ class QueryForm(Form):
     
 
     def __init__(self, table_name, *args, **kwargs):
-        super(QueryForm, self).__init__(*args, **kwargs)
+        super(QueryForm_old, self).__init__(*args, **kwargs)
         self.TABLE_CHOICE = [
             (f"{table_name}", f"{table_name}"),
         ]
