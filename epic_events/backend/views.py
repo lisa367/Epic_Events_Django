@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.forms import formset_factory
 
-from .forms import QueryForm, QueryFormSet
-
+from .forms import QueryForm, QueryFormSet, make_query_form
 
 # @login_required
 def choose_table(request):
