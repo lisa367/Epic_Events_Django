@@ -11,6 +11,6 @@ def choose_table(request):
 # @login_required
 def query_table(request, table_name):
     if request.method == "POST":
-        QueryForm = make_query_form(table_name)
-        QueryFormSet = formset_factory(QueryForm, absolute_max=10)
+        TableQueryForm = make_query_form(table_name)
+        QueryFormSet = formset_factory(TableQueryForm, absolute_max=10)
     return render(request, "backends/query_table.html")
