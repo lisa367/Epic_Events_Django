@@ -8,7 +8,7 @@ from .models import Client
 
 class ClientDetailView(DetailView):
     model = Client
-    template_name = 'clients/client.html'
+    template_name = 'clients/client_detail.html'
     context_object_name = "client"
 
 
