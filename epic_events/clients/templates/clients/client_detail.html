@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
-{% block title %} Client Detail {% endblock %}
+{% block title %}
+    {% if client %}
+        client.fullname 's Details
+    {% else %}
+        Client Detail 
+    {% endif %}
+{% endblock %}
 
 {% block content %} {% endblock %}
