@@ -9,6 +9,15 @@
 {% endblock %}
 
 {% block content %} 
+    <table>
+        {% for key, value in client %}
+        <tr>
+            <td>{{ key.title() }}</td>
+            <td>{{ value }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    
 
     {{ client.email }} 
     {{ client.telephone }}
