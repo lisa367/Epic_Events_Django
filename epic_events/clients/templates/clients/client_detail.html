@@ -2,10 +2,20 @@
 
 {% block title %}
     {% if client %}
-        {{ client.fullname }}'s Details
+        {{ client.nom_complet }}'s Details
     {% else %}
         Client Detail 
     {% endif %}
 {% endblock %}
 
-{% block content %} {% endblock %}
+{% block content %} 
+
+    {{ client.email }} 
+    {{ client.telephone }}
+    {{ client.nom_entreprise }}
+    {{ client.date_premier_contact }}
+    {{ client.date_dernier_contact }} 
+    {{ client.contact_commercial }} 
+    {{ client.collaborateur_id }} 
+
+{% endblock %}
