@@ -20,7 +20,7 @@ from django.urls import path, include
 from .views import query_table, choose_table
 
 urlpatterns = [
-    path("/"),
+    path("/", name="landing-page"),
     path("epic-admin/", admin.site.urls),
     path("employee/", include("employee.urls")),
     path("clients/", include("clients.urls")),
