@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from .views import query_table
+from .views import query_table, choose_table
 
 urlpatterns = [
     path("/"),
@@ -26,7 +26,7 @@ urlpatterns = [
     path("clients/", include("clients.urls")),
     path("contrats/", include("contrats.urls")),
     path("evenements/", include("evenements.urls")),
-    path("queries/", query_table, name="make-queries"),
+    path("queries/", choose_table, name="make-queries"),
 ]
 
 """ 
