@@ -2,14 +2,14 @@
 
 {% block title %}
     {% if client %}
-        Contrat n{{ contrat.id }}'s Details
+        Contrat n{{ contrat.id }}
     {% else %}
         Contract Detail 
     {% endif %}
 {% endblock %}
 
 {% block content %} 
-    <h1>{{  contrat.client_id.nom_complet }}'s Detailed Information</h1>
+    <h1> Contract for client : {{  contrat.client_id.nom_complet }}</h1>
     <table>
         {% for key, value in client %}
         <tr>
@@ -18,14 +18,6 @@
         </tr>
         {% endfor %}
     </table>
-    
 
-    {{ client.email }} 
-    {{ client.telephone }}
-    {{ client.nom_entreprise }}
-    {{ client.date_premier_contact }}
-    {{ client.date_dernier_contact }} 
-    {{ client.contact_commercial }} 
-    {{ client.collaborateur_id }} 
 
 {% endblock %}
