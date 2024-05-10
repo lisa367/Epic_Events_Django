@@ -17,6 +17,9 @@
             <a href="{% url %}">Logout</a>
         {% endif %}
     </nav>
+    <sidebar>
+        {{ request.user.name }}
+    </sidebar>
     {% block content %}{% endblock %}
 </body>
 </html>
