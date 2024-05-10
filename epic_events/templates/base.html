@@ -17,9 +17,12 @@
             <a href="{% url %}">Logout</a>
         {% endif %}
     </nav>
+
+    {% if not request.user.is_authenticated %}
     <sidebar>
         {{ request.user.name }}
     </sidebar>
+    {% endif %}
     {% block content %}{% endblock %}
 </body>
 </html>
