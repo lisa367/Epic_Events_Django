@@ -20,7 +20,12 @@
 
     {% if not request.user.is_authenticated %}
     <sidebar>
-        {{ request.user.name }}
+        <a href="">{{ request.user.name }}</a>
+        <a href="">Evenements</a>
+        <a href="">Clients</a>
+        <a href="">Contrats</a>
+        <a href="">Collaborateurs</a>
+        <a href=""></a>
     </sidebar>
     {% endif %}
     {% block content %}{% endblock %}
