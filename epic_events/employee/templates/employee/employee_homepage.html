@@ -5,8 +5,23 @@
 
 
 {% block content %}
+<h1>My Homepage</h1>
 
-<section></section>
-<aside class="sidebar rigth"></aside>
+<section>
+    <h2>Mes</h2>
+</section>
+<aside class="sidebar rigth">
+    <h2>Évènements à venir</h2>
+    {% for event in last_five_events %}
+    <div class="event">
+        <h3>{{ event.nom_evenement }}</h3>
+        <p>{{ event.date_debut }}</p>
+        <p>{{ event.date_fin }}</p>
+        <p>{{ event.lieu }}</p>
+        <p>{{ event.nom_client }}</p>
+        <a href="">Voir détails</a>
+    </div>
+    {% endfor %}
+</aside>
 
 {% endblock %}
