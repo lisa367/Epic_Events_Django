@@ -10,9 +10,7 @@
 <section>
     {% if collaborateur.departement == "Commercial" %}
     <h2>Mes Clients</h2>
-    <table>
-        
-    </table>
+    <table></table>
 
     {% elif collaborateur.departement == "Support" %}
     <h2>Mes Évènements</h2>
@@ -20,7 +18,26 @@
 
     {% elif collaborateur.departement == "Gestion" %}
     <h2>Mes Dernières Entrées</h2>
-    <table></table>
+
+    <table class="custom-data">
+        {% for key, value in custom_data_1 %}
+        <tr>
+            <td>{{ key.title() }}</td>
+            <td>{{ value }}</td>
+            <td><a href="">Voir plus</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <table class="custom-data">
+        {% for key, value in custom_data_2 %}
+        <tr>
+            <td>{{ key.title() }}</td>
+            <td>{{ value }}</td>
+            <td><a href="">Voir plus</a></td>
+        </tr>
+        {% endfor %}
+    </table>
 
     {% endif %}
 </section>
