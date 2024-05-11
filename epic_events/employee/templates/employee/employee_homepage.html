@@ -8,8 +8,23 @@
 <h1>My Homepage</h1>
 
 <section>
-    <h2>Mes</h2>
+    {% if collaborateur.departement == "Commercial" %}
+    <h2>Mes Clients</h2>
+    <table>
+        
+    </table>
+
+    {% elif collaborateur.departement == "Support" %}
+    <h2>Mes Évènements</h2>
+    <table></table>
+
+    {% elif collaborateur.departement == "Gestion" %}
+    <h2>Mes Dernières Entrées</h2>
+    <table></table>
+
+    {% endif %}
 </section>
+
 <aside class="sidebar rigth">
     <h2>Évènements à venir</h2>
     {% for event in last_five_events %}
