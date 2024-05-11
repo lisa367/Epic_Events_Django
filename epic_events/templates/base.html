@@ -19,14 +19,14 @@
     </nav>
 
     {% if not request.user.is_authenticated %}
-    <sidebar>
+    <aside class="sidebar left">
         <a href="">{{ request.user.name }}</a>
         <a href="">Evenements</a>
         <a href="">Clients</a>
         <a href="">Contrats</a>
         <a href="">Collaborateurs</a>
-        <a href=""></a>
-    </sidebar>
+        <a href="">Statistiques</a>
+    </aside>
     {% endif %}
     {% block content %}{% endblock %}
 </body>
