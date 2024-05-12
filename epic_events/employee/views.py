@@ -45,6 +45,9 @@ class EmployeeDeleteView(UpdateView):
     template_name = "employee/update.html"
 
 
+def most_recent_employees():
+    pass
+
 # @login_required
 def employee_homepage(request):
     context_data = {}
@@ -59,5 +62,8 @@ def employee_homepage(request):
         context_data["employee_contrats"] = employee_contrats(request.user.id)
     elif employee_data["departement"] == "Support" :
         context_data["employee_events"] = employee_events(request.user.id)
+    elif employee_data["departement"] == "Gestion" :
+        context_data["custom_data_1"] = ''
+        context_data["custom_data_2"] = {}
 
     return render(request, "employee/employee_homepage.html", context=context_data)
