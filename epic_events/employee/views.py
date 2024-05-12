@@ -55,6 +55,7 @@ def employee_homepage(request):
 
     if employee_data["departement"] == "Commercial" :
         context_data["employee_clients"] = employee_clients(request.user.id)
+        context_data["custom_data_1"] = {}
         context_data["employee_contrats"] = employee_contrats(request.user.id)
     elif employee_data["departement"] == "Support" :
         context_data["employee_events"] = employee_events(request.user.id)
