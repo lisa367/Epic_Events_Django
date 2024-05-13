@@ -49,6 +49,7 @@ class EmployeeDeleteView(UpdateView):
 
 def events_without_support():
     events = Evenement.objects.filter(collaborateur_support_id=None)
+    return events
 
 # @login_required
 def employee_homepage(request):
@@ -65,7 +66,7 @@ def employee_homepage(request):
     elif employee_data["departement"] == "Support" :
         context_data["employee_events"] = employee_events(request.user.id)
     elif employee_data["departement"] == "Gestion" :
-        context_data["custom_data_1"] = ''
+        context_data["custom_data_1"] = events_without_support()
         context_data["custom_data_2"] = {}
 
     return render(request, "employee/employee_homepage.html", context=context_data)
