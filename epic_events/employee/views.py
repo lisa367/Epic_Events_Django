@@ -6,6 +6,8 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from evenements.views import upcoming_events, employee_events
 from clients.views import employee_clients
 from contrats.views import employee_contrats
+from evenements.models import Evenement
+
 from models import Employee
 from .forms import EmployeeForm, EmployeePasswordForm
 
@@ -45,8 +47,8 @@ class EmployeeDeleteView(UpdateView):
     template_name = "employee/update.html"
 
 
-def most_recent_employees():
-    pass
+def events_without_support():
+    events = Evenement.objects.filter(collaborateur_support_id=None)
 
 # @login_required
 def employee_homepage(request):
