@@ -3,6 +3,8 @@ from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
+from evenements.models import Evenement
+
 from .models import Contrat
 
 
@@ -37,3 +39,13 @@ class ContratDeleteView(DeleteView):
 def employee_contrats(employee_id):
     filtered_contrats = Contrat.objects.filter(client_id__collaborateur_id=employee_id)
     return filtered_contrats
+
+
+def contract_without_commercial():
+    events = Contrat.objects.filter(collaborateur_id=None)
+    return events
+
+
+def contract_without_commercial(user_id):
+    events = Contrat.objects.filter(collaborateur_id=user_id, statut="unsigned")
+    return events
