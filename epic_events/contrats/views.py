@@ -36,8 +36,8 @@ class ContratDeleteView(DeleteView):
     template_name = "contrats/delete.html"
 
 
-def employee_contrats(employee_id):
-    filtered_contrats = Contrat.objects.filter(client_id__collaborateur_id=employee_id)
+def employee_contrats(user_id):
+    filtered_contrats = Contrat.objects.filter(client_id__collaborateur_id=user_id)
     return filtered_contrats
 
 
@@ -51,7 +51,8 @@ def contract_without_commercial(user_id):
     return contracts
 
 def unpaid_contracts(user_id):
-    pass
+    filtered_contracts = Contrat.objects.filter(collaborateur_id=user_id,montant_redevable_gt=0)
+    return filtered_contracts
 
 
 def filter_contracts(filters_args):
