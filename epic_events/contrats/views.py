@@ -42,10 +42,18 @@ def employee_contrats(employee_id):
 
 
 def contract_without_commercial():
-    events = Contrat.objects.filter(collaborateur_id=None)
-    return events
+    contracts = Contrat.objects.filter(collaborateur_id=None)
+    return contracts
 
 
 def contract_without_commercial(user_id):
-    events = Contrat.objects.filter(collaborateur_id=user_id, statut="unsigned")
-    return events
+    contracts = Contrat.objects.filter(collaborateur_id=user_id, statut="unsigned")
+    return contracts
+
+def unpaid_contracts(user_id):
+    pass
+
+
+def filter_contracts(filters_args):
+    filtered_contracts = Contrat.objects.filter(**filters_args)
+    return filtered_contracts
