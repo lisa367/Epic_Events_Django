@@ -49,3 +49,8 @@ def upcoming_events():
 def employee_events(employee_id):
     filtered_events = Evenement.objects.filter(collaborateur_id=employee_id)
     return filtered_events
+
+
+def events_without_support():
+    events = Evenement.objects.filter(collaborateur_support_id=None)
+    return events
