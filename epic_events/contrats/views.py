@@ -51,7 +51,7 @@ def contract_without_commercial(user_id):
     return contracts
 
 def unpaid_contracts(user_id):
-    filtered_contracts = Contrat.objects.filter(collaborateur_id=user_id,montant_redevable_gt=0)
+    filtered_contracts = Contrat.objects.filter(collaborateur_id=user_id, montant_redevable__gt=0)
     return filtered_contracts
 
 
