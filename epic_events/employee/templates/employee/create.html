@@ -4,4 +4,11 @@
 {% block title %}Nouveau Collaborateur{% endblock %}
 
 {% block content %}
+
+<form action="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button>Créer</button>
+</form>
+
 {% endblock %}
