@@ -16,6 +16,8 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from .views import query_table, choose_table
 
@@ -27,7 +29,7 @@ urlpatterns = [
     path("contrats/", include("contrats.urls")),
     path("evenements/", include("evenements.urls")),
     path("queries/", choose_table, name="make-queries"),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 """ 
 from django.urls import path
