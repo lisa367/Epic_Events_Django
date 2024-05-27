@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.forms import formset_factory
+from django.contrib.auth import logout
 
 from .forms import QueryForm, QueryFormSet, make_query_form
 
@@ -17,4 +18,4 @@ def query_table(request, table_name):
 
 
 def logout(request):
-    pass
+    logout()
