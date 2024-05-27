@@ -14,3 +14,7 @@ def query_table(request, table_name):
         TableQueryForm = make_query_form(table_name)
         QueryFormSet = formset_factory(TableQueryForm, absolute_max=10)
     return render(request, "backends/query_table.html")
+
+
+def logout(request):
+    pass
