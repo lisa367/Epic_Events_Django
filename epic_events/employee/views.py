@@ -46,9 +46,21 @@ class EmployeeDeleteView(UpdateView):
     template_name = "employee/update.html"
 
 
+def new_employee_view(request, *args, **kwargs):
+    context = {}
+    if request.method == "POST":
+        form = EmployeeForm(request.POST)
+        if form.is_valid():
+            print("valid form")
+            form.save()
+
+    else:
+        context["form"] = EmployeeForm()
+        render(request, "employee/create.html", context=context)
+
 
 # @login_required
-def employee_homepage(request):
+def employee_homepage(request, *args, **kwargs):
     context_data = {}
     context_data["next_events"] = upcoming_events()
 
