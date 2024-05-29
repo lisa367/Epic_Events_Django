@@ -62,6 +62,7 @@ class Employee(AbstractUser):
     departement = models.CharField(max_length=128, choices=OPTIONS)
     role = models.CharField(max_length=256, blank=True)
     email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128, verbose_name="mot de passe")
     photo = models.ImageField(upload_to=None, blank=True)
 
     USERNAME_FIELD = "employee_ref"
