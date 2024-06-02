@@ -1,3 +1,4 @@
+from typing import Any
 from django.shortcuts import render
 from django.forms import formset_factory
 from django.contrib.auth import login, logout
@@ -12,6 +13,58 @@ def login_user():
 
 def logout(request):
     logout()
+
+
+class AppListView(ListView):
+    model = ''
+    template_name = 'templates/base_list.html'
+    context_object_name = ''
+    form_class = ''
+    template_title = ''
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.template_title
+        return context
+
+
+class AppCreateView(CreateView):
+    model = ''
+    template_name = 'templates/base_create.html'
+    context_object_name = ''
+    form_class = ''
+    template_title = ''
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.template_title
+        return context
+
+
+class AppUpdateView(UpdateView):
+    model = ''
+    template_name = 'templates/base_update.html'
+    context_object_name = ''
+    form_class = ''
+    template_title = ''
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.template_title
+        return context
+    
+
+class AppDeleteView(DeleteView):
+    model = ''
+    template_name = 'templates/base_delete.html'
+    context_object_name = ''
+    template_title = ''
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["title"] = self.template_title
+        return context
+
 
 # @login_required
 def choose_table(request):
