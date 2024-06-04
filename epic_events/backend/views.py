@@ -20,11 +20,11 @@ class AppListView(ListView):
     template_name = 'templates/base_list.html'
     context_object_name = ''
     form_class = ''
-    template_title = ''
+    title = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = self.template_title
+        context["title"] = self.title
         context["object_name"] = self.context_object_name
         return context
 
@@ -34,12 +34,12 @@ class AppCreateView(CreateView):
     template_name = 'templates/base_create.html'
     context_object_name = ''
     form_class = ''
-    template_title = ''
+    title = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = self.template_title
-        context["object_name"] = self.context_object_name
+        context["title"] = self.title
+        context["object_name"] = self.form_class
         return context
 
 
@@ -48,12 +48,12 @@ class AppUpdateView(UpdateView):
     template_name = 'templates/base_update.html'
     context_object_name = ''
     form_class = ''
-    template_title = ''
+    title = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = self.template_title
-        context["object_name"] = self.context_object_name
+        context["title"] = self.title
+        context["form_class"] = self.form_class
         return context
     
 
@@ -61,11 +61,11 @@ class AppDeleteView(DeleteView):
     model = ''
     template_name = 'templates/base_delete.html'
     context_object_name = ''
-    template_title = ''
+    title = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = self.template_title
+        context["title"] = self.title
         context["object_name"] = self.context_object_name
         return context
 
