@@ -25,6 +25,7 @@ class AppListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = self.template_title
+        context["object_name"] = self.context_object_name
         return context
 
 
@@ -38,6 +39,7 @@ class AppCreateView(CreateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = self.template_title
+        context["object_name"] = self.context_object_name
         return context
 
 
@@ -51,6 +53,7 @@ class AppUpdateView(UpdateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = self.template_title
+        context["object_name"] = self.context_object_name
         return context
     
 
@@ -63,6 +66,7 @@ class AppDeleteView(DeleteView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = self.template_title
+        context["object_name"] = self.context_object_name
         return context
 
 
