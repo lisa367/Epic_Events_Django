@@ -2,6 +2,7 @@ from typing import Any
 from django.shortcuts import render
 from django.forms import formset_factory
 from django.contrib.auth import login, logout
+from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -29,12 +30,13 @@ class AppListView(ListView):
         return context
 
 
-class AppCreateView(CreateView):
+class AppCreateView(CreateView, PermissionRequiredMixin):
     model = ''
     template_name = 'templates/base_create.html'
     context_object_name = ''
     form_class = ''
     title = ''
+    permission_required = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -43,12 +45,13 @@ class AppCreateView(CreateView):
         return context
 
 
-class AppUpdateView(UpdateView):
+class AppUpdateView(UpdateView, PermissionRequiredMixin):
     model = ''
     template_name = 'templates/base_update.html'
     context_object_name = ''
     form_class = ''
     title = ''
+    permission_required = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -57,11 +60,12 @@ class AppUpdateView(UpdateView):
         return context
     
 
-class AppDeleteView(DeleteView):
+class AppDeleteView(DeleteView, PermissionRequiredMixin):
     model = ''
     template_name = 'templates/base_delete.html'
     context_object_name = ''
     title = ''
+    permission_required = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
