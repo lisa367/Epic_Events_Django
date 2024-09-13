@@ -1,7 +1,7 @@
 from typing import Any
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.forms import formset_factory
-from django.contrib.auth import login, logout
+from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -9,11 +9,16 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import QueryForm, QueryFormSet, make_query_form
 
-def login_user():
-    pass
+def landing_page(request):
+    if request.method == "POST":
+        employee_ref = method.POST.get("employee_ref")
+        password = method.POST.get("password")
+    else
+        return render(request, )
 
-def logout(request):
-    logout()
+def logout_view(request):
+    logout(request)
+    return redirect("landing-page")
 
 
 class AppListView(ListView):
