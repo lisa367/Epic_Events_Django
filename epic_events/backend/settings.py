@@ -32,15 +32,16 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "350+ct_p&dfh1fxcmy89g0ta(9li(*(6qh)40h3w&p7bae@upl"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
  """
+ALLOWED_HOSTS = []
 
-SECRET_KEY = os.environ.get('SECRET_KEY')
-DEBUG = os.environ.get('DEBUG') == "True"
-ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
-DSN = os.environ.get('DSN')
 
-print(f"DEBUG = {DEBUG}")
+SECRET_KEY = os.environ.get("SECRET_KEY")
+DEBUG = os.environ.get("DEBUG") == "True"
+# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
+DSN = os.environ.get("DSN")
+
+# print(f"DEBUG = {DEBUG}")
 
 
 # Application definition
@@ -101,7 +102,6 @@ DATABASES = {
         "PASSWORD": os.environ.get("DB_PASSWORD"),
         "HOST": os.environ.get("DB_HOST"),
         "PORT": os.environ.get("DB_PORT"),
-
     }
 }
 
@@ -149,8 +149,8 @@ AUTH_PASSWORD_VALIDATORS = [
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly"
     ]
 }
 
@@ -177,6 +177,7 @@ STATIC_URL = "/static/"
 
 logging.basicConfig(level=logging.WARNING)
 
+""" 
 sentry_sdk.init(
     dsn=DSN,
     # ...
@@ -190,3 +191,4 @@ sentry_sdk.init(
         LoggingIntegration(level=logging.WARNING, event_level=logging.WARNING),
     ],
 )
+"""
