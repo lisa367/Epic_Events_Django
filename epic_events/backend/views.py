@@ -16,13 +16,17 @@ def index(request):
         employee_ref = method.POST.get("username")
         password = method.POST.get("password")
         user = authenticate(request, username=employee_ref, password=password)
+
         if user:
             print("valid form")
             login(requesrt, user)
             return redirect("homepage")
+        else:
+            print("invalid form")
+            return redirect("index")
+            
     else:
         context["form"] = AuthenticationForm()
-        print("invalid form")
         return render(request, "templates/index.html", context=context)
 
 def logout_view(request):
