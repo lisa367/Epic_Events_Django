@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+<h1>Welcome to the Epic Events CRM</h1>
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <input type="text" name="employee_ref" id="employee_ref">
+    <input type="password" name="password" id="password">
+    <input type="submit" value="Login">
+</form>
