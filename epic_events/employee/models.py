@@ -56,7 +56,7 @@ class Employee(AbstractUser):
         ("Support", "Support"),
     ]
 
-    employee_ref = models.CharField(max_length=10)
+    employee_ref = models.CharField(max_length=10, unique=True)
     prenom = models.CharField(max_length=128)
     nom = models.CharField(max_length=128)
     departement = models.CharField(max_length=128, choices=OPTIONS)

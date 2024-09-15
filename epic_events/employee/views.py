@@ -7,7 +7,7 @@ from evenements.views import upcoming_events, employee_events, events_without_su
 from clients.views import employee_clients
 from contrats.views import employee_contrats, contract_without_commercial
 
-from models import Employee
+from .models import Employee
 from .forms import EmployeeForm, EmployeePasswordForm
 
 
