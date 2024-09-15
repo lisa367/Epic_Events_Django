@@ -9,16 +9,16 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import QueryForm, QueryFormSet, make_query_form
 
-def landing_page(request):
+def index(request):
     if request.method == "POST":
         employee_ref = method.POST.get("employee_ref")
         password = method.POST.get("password")
     else
-        return render(request, )
+        return render(request, "templates/index.html")
 
 def logout_view(request):
     logout(request)
-    return redirect("landing-page")
+    return redirect("index")
 
 
 class AppListView(ListView):
