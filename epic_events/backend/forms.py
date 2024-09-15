@@ -29,11 +29,13 @@ class QueryForm_old(Form):
         (Contrat, "Contrats"),
         (Evenement, "Evenements"),
     ]
+
+    COLUMN_CHOICE = []
    
-    COLUMN_CHOICE = [
+    """ COLUMN_CHOICE = [
         ("", ""),
         (f"{field}", f"{field}") for field in TABLE_CHOICE.meta.fields
-    ]
+    ] """
     
 
     def __init__(self, table_name, *args, **kwargs):
@@ -60,10 +62,13 @@ class QueryForm_old(Form):
 
 def make_query_form(table_name):
     class QueryForm(Form):
+        """ 
         COLUMN_CHOICE = [
             ("", ""),
             (f"{field}", f"{field}") for field in table_name.meta.fields
         ]
+        """
+        COLUMN_CHOICE = []
 
         column_name = ChoiceField(choices=COLUMN_CHOICE, label="Colonne")
         column_value = CharField(max_length=256, label="Valeur")

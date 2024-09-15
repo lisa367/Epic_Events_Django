@@ -8,7 +8,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
-from .forms import QueryForm, QueryFormSet, make_query_form
+from .forms import  QueryFormSet, make_query_form
 
 def index(request):
     context =  {}
@@ -24,7 +24,7 @@ def index(request):
         else:
             print("invalid form")
             return redirect("index")
-            
+
     else:
         context["form"] = AuthenticationForm()
         return render(request, "templates/index.html", context=context)
