@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 
+{% block content %}
 <h1>Welcome to the Epic Events CRM</h1>
 
 <form action="" method="POST">
@@ -7,3 +8,5 @@
     {{ form.as_table }}
     <input type="submit" value="Login">
 </form>
+
+{% endblock %}
