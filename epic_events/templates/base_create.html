@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}{% endblock %}
+{% block title %}Ajouter un {{ Object_name }}{% endblock %}
 
 {% block content %}
 
@@ -9,7 +9,7 @@
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <button>Créer</button>
+        <button>Ajouter</button>
     </form>
 
 {% endblock %}
