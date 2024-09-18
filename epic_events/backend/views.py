@@ -53,13 +53,12 @@ class AppCreateView(CreateView, PermissionRequiredMixin):
     template_name = 'templates/base_create.html'
     context_object_name = ''
     form_class = ''
-    title = ''
     permission_required = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = self.title
         context["object_name"] = self.context_object_name
+        context["form"] = self.form_class
         return context
 
 
@@ -68,14 +67,12 @@ class AppUpdateView(UpdateView, PermissionRequiredMixin):
     template_name = 'templates/base_update.html'
     context_object_name = ''
     form_class = ''
-    title = ''
     permission_required = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = self.title
         context["object_name"] = self.context_object_name
-        context["form_class"] = self.form_class
+        context["form"] = self.form_class
         return context
     
 
@@ -83,12 +80,10 @@ class AppDeleteView(DeleteView, PermissionRequiredMixin):
     model = ''
     template_name = 'templates/base_delete.html'
     context_object_name = ''
-    title = ''
     permission_required = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["title"] = self.title
         context["object_name"] = self.context_object_name
         return context
 
