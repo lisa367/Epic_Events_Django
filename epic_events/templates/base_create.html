@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
-{% block title %}Ajouter un {{ Object_name }}{% endblock %}
+{% block title %}Ajouter un {{ object_name }}{% endblock %}
 
 {% block content %}
 
-    <h1>{{ title }}</h1>
+    <h1>Ajouter un {{ object_name }}</h1>
 
     <form action="" method="POST">
         {% csrf_token %}
