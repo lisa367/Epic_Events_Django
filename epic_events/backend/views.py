@@ -13,13 +13,13 @@ from .forms import  QueryFormSet, make_query_form
 def index(request):
     context =  {}
     if request.method == "POST":
-        employee_ref = method.POST.get("username")
-        password = method.POST.get("password")
+        employee_ref = request.method.POST.get("username")
+        password = request.method.POST.get("password")
         user = authenticate(request, username=employee_ref, password=password)
 
         if user:
             print("valid form")
-            login(requesrt, user)
+            login(request, user)
             return redirect("homepage")
         else:
             print("invalid form")
