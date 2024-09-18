@@ -59,7 +59,7 @@ class AppCreateView(CreateView, PermissionRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = self.title
-        context["object_name"] = self.form_class
+        context["object_name"] = self.context_object_name
         return context
 
 
@@ -74,6 +74,7 @@ class AppUpdateView(UpdateView, PermissionRequiredMixin):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = self.title
+        context["object_name"] = self.context_object_name
         context["form_class"] = self.form_class
         return context
     
