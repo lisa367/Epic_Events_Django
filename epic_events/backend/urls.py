@@ -23,13 +23,13 @@ from .views import query_table, choose_table, index, logout_view
 
 urlpatterns = [
     path("", index, name="index"),
-    path("logout/", logout_view, name="logout"),
+    path("logout/  ", logout_view, name="logout"),
     path("epic-admin/", admin.site.urls),
     path("employee/", include("employee.urls")),
     path("clients/", include("clients.urls")),
     path("contrats/", include("contrats.urls")),
     path("evenements/", include("evenements.urls")),
-    path("queries/", choose_table, name="make-queries"),
+    path("queries/", choose_table, name="queries"),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 """ 
