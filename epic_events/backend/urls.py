@@ -19,10 +19,11 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from .views import query_table, choose_table, index
+from .views import query_table, choose_table, index, logout_view
 
 urlpatterns = [
     path("", index, name="index"),
+    path("logout/", logout_view, name="logout"),
     path("epic-admin/", admin.site.urls),
     path("employee/", include("employee.urls")),
     path("clients/", include("clients.urls")),
