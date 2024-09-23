@@ -13,8 +13,8 @@ class Evenement(models.Model):
     nombre_invites = models.IntegerField(default=0)
     commentaire = models.TextField(blank=True)
     contact_support = models.CharField(max_length=128, blank=True)
-    contrat_id = models.ForeignKey(Contrat, on_delete=models.RESTRICT)
-    collaborateur_support_id = models.ForeignKey(Employee, on_delete=models.RESTRICT)
+    contrat_id = models.ForeignKey(Contrat, on_delete=models.DO_NOTHING)
+    collaborateur_support_id = models.ForeignKey(Employee, on_delete=models.SET_DEFAULT, default=1)
 
     def __str__(self) -> str:
         return f"Evenement : {self.nom_evenement} ({self.date_debut} - {self.date_fin})"
