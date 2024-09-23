@@ -10,7 +10,7 @@ class Client(models.Model):
     date_premier_contact = models.DateField(blank=True)
     date_dernier_contact = models.DateField(blank=True)
     contact_commercial = models.CharField(max_length=128)
-    collaborateur_id = models.ForeignKey(Employee, on_delete=models.RESTRICT)
+    collaborateur_id = models.ForeignKey(Employee, on_delete=models.SET_DEFAULT, default=1)
 
     def __str__(self) -> str:
         return f"Client: n˚{self.id} - {self.nom_complet}"
