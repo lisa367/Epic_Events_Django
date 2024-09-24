@@ -56,7 +56,7 @@ def new_employee_view(request, *args, **kwargs):
 
     else:
         context["form"] = EmployeeForm()
-        render(request, "employee/create.html", context=context)
+        return render(request, "employee/create.html", context=context)
 
 
 # @login_required
