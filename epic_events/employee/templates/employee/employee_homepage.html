@@ -24,7 +24,7 @@
         <tr>
             <td>{{ key.title() }}</td>
             <td>{{ value }}</td>
-            <td><a href="">Voir plus</a></td>
+            <td><a href="{% url {{ url_1 }} %}">Voir plus</a></td>
         </tr>
         {% endfor %}
     </table>
@@ -34,7 +34,7 @@
         <tr>
             <td>{{ key.title() }}</td>
             <td>{{ value }}</td>
-            <td><a href="">Voir plus</a></td>
+            <td><a href="{% url {{ url_2 }} %}">Voir plus</a></td>
         </tr>
         {% endfor %}
     </table>
