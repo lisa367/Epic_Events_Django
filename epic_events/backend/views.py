@@ -27,7 +27,7 @@ def index(request):
 
     else:
         context["form"] = AuthenticationForm()
-        return render(request, "templates/index.html", context=context)
+        return render(request, "index.html", context=context)
 
 def logout_view(request):
     logout(request)
