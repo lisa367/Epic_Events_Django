@@ -78,6 +78,8 @@ def employee_homepage(request, *args, **kwargs):
     elif employee_data["departement"] == "Support" :
         # context_data["employee_events"] = employee_events(request.user.id)
         context_data["custom_data_1"] = employee_events(request.user.id)
+        context_data["url_1"] = ''
+        context_data["url_2"] = ''
 
     elif employee_data["departement"] == "Gestion" :
         context_data["custom_data_1"] = events_without_support()
