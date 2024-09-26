@@ -71,6 +71,7 @@ def employee_homepage(request, *args, **kwargs):
         # context_data["employee_clients"] = employee_clients(request.user.id)
         context_data["custom_data_1"] = employee_clients(request.user.id)
         context_data["custom_data_2"] = contract_without_commercial()
+        context_data["url_1"] = ''
         # context_data["employee_contrats"] = employee_contrats(request.user.id)
 
     elif employee_data["departement"] == "Support" :
