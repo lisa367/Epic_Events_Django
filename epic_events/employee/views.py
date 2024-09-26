@@ -84,5 +84,7 @@ def employee_homepage(request, *args, **kwargs):
     elif employee_data["departement"] == "Gestion" :
         context_data["custom_data_1"] = events_without_support()
         context_data["custom_data_2"] = contract_without_commercial()
+        context_data["url_1"] = ''
+        context_data["url_2"] = ''
 
     return render(request, "employee/employee_homepage.html", context=context_data)
