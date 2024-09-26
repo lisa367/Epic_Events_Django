@@ -46,11 +46,11 @@ def upcoming_events():
     return ten_next_events
 
 
-def employee_events(employee_id):
-    filtered_events = Evenement.objects.filter(collaborateur_id=employee_id)
+def employee_events(employee_id, num=-1):
+    filtered_events = Evenement.objects.filter(collaborateur_id=employee_id)[:num]
     return filtered_events
 
 
-def events_without_support():
-    events = Evenement.objects.filter(collaborateur_support_id=None)
+def events_without_support(num=-1):
+    events = Evenement.objects.filter(collaborateur_support_id=None)[:num]
     return events
