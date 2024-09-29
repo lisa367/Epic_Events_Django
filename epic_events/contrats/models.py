@@ -1,7 +1,10 @@
 from django.db import models
-from employee.models import Employee
+from django.contrib.auth import get_user_model
+
+# from employee.models import Employee
 from clients.models import Client
 
+Employee = get_user_model()
 
 class Contrat(models.Model):
     CHOIX_STATUT = [
