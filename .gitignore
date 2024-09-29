@@ -2,4 +2,4 @@
 .env
 **/__pycache__
 **/._migrations*
-**/_migrations 14-52-*
+**/migrations 14-52-*
