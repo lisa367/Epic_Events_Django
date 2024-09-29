@@ -1,6 +1,9 @@
 from django.db import models
-from employee.models import Employee
+from django.contrib.auth import get_user_model
 
+# from employee.models import Employee
+
+Employee = get_user_model()
 
 class Client(models.Model):
     nom_complet = models.CharField(max_length=256)
