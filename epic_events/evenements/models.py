@@ -1,7 +1,10 @@
 from django.db import models
-from employee.models import Employee
+from django.contrib.auth import get_user_model
+
+# from employee.models import Employee
 from contrats.models import Contrat
 
+Employee = get_user_model()
 
 class Evenement(models.Model):
     nom_evenement = models.CharField(max_length=256)
