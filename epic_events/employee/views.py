@@ -71,20 +71,20 @@ def employee_homepage(request, *args, **kwargs):
         # context_data["employee_clients"] = employee_clients(request.user.id)
         context_data["custom_data_1"] = employee_clients(request.user.id, 5)
         context_data["custom_data_2"] = contract_without_commercial(5)
-        context_data["url_1"] = ''
-        context_data["url_2"] = ''
+        context_data["url_1"] = 'clients:my_clients'
+        context_data["url_2"] = 'contracts:unassigned'
         # context_data["employee_contrats"] = employee_contrats(request.user.id)
 
     elif employee_data["departement"] == "Support" :
         # context_data["employee_events"] = employee_events(request.user.id)
         context_data["custom_data_1"] = employee_events(request.user.id, 5)
-        context_data["url_1"] = ''
+        context_data["url_1"] = 'evenements:my_events'
         context_data["url_2"] = ''
 
     elif employee_data["departement"] == "Gestion" :
         context_data["custom_data_1"] = events_without_support(5)
         context_data["custom_data_2"] = contract_without_commercial(5)
-        context_data["url_1"] = ''
-        context_data["url_2"] = ''
+        context_data["url_1"] = 'evenements:unassigned'
+        context_data["url_2"] = 'contracts:unassigned'
 
     return render(request, "employee/employee_homepage.html", context=context_data)

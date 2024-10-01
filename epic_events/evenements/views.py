@@ -47,7 +47,7 @@ def upcoming_events():
 
 
 def employee_events(employee_id, num=-1):
-    filtered_events = Evenement.objects.filter(collaborateur_id=employee_id)[:num]
+    filtered_events = Evenement.objects.filter(collaborateur_id=employee_id).order_by("-date_debut")[:num]
     return filtered_events
 
 
