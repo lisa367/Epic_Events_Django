@@ -10,17 +10,17 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .forms import  QueryFormSet, make_query_form
 
-def index(request):
+def index(request, *args, **kwargs):
     context =  {}
     if request.method == "POST":
-        employee_ref = request.method.POST.get("username")
-        password = request.method.POST.get("password")
+        employee_ref = request.POST.get("username")
+        password = request.POST.get("password")
         user = authenticate(request, username=employee_ref, password=password)
 
         if user:
             print("valid form")
             login(request, user)
-            return redirect("homepage")
+            return redirect("employee:homepage")
         else:
             print("invalid form")
             return redirect("index")
