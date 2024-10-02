@@ -64,11 +64,11 @@ def employee_homepage(request, *args, **kwargs):
     context_data = {}
     context_data["next_events"] = upcoming_events()
 
-    employee_data = Employee.objects.filter(id=request.user.id).values()
+    context_data["employee_data"] = Employee.objects.filter(id=request.user.id).values()[0]
     # print(request.user.id)
-    print(employee_data[0])
-    """ 
-    context_data["employee_data"] = employee_data
+    print(context_data["employee_data"])
+    
+    employee_data = context_data["employee_data"]
 
     if employee_data["departement"] == "Commercial" :
         # context_data["employee_clients"] = employee_clients(request.user.id)
@@ -89,5 +89,5 @@ def employee_homepage(request, *args, **kwargs):
         context_data["custom_data_2"] = contract_without_commercial(5)
         context_data["url_1"] = 'evenements:unassigned'
         context_data["url_2"] = 'contracts:unassigned'
- """
+
     return render(request, "employee/employee_homepage.html", context=context_data)
