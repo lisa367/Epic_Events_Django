@@ -7,39 +7,23 @@
 {% block content %}
 <h1>My Homepage</h1>
 
-<section>
-    {% if collaborateur.departement == "Commercial" %}
-    <h2>Mes Clients</h2>
-    <table></table>
 
-    {% elif collaborateur.departement == "Support" %}
-    <h2>Mes Évènements</h2>
-    <table></table>
-
-    {% elif collaborateur.departement == "Gestion" %}
     <h2>Mes Dernières Entrées</h2>
 
-    <table class="custom-data">
-        {% for key, value in custom_data_1 %}
+    <table class="custom-data"></table>
+        {% for tuple in employee_data %}
         <tr>
-            <td>{{ key.title() }}</td>
-            <td>{{ value }}</td>
-            <td><a href="{% url {{ url_1 }} %}">Voir plus</a></td>
+            {% for val in tuple %}
+            <td>{{ val|title }}</td>
+            {% endfor %}
         </tr>
         {% endfor %}
-    </table>
-
-    <table class="custom-data">
-        {% for key, value in custom_data_2 %}
         <tr>
-            <td>{{ key.title() }}</td>
-            <td>{{ value }}</td>
-            <td><a href="{% url {{ url_2 }} %}">Voir plus</a></td>
+            <td><a href="{% url url_1 %}">Voir plus</a></td>
         </tr>
-        {% endfor %}
     </table>
 
-    {% endif %}
+
 </section>
 
 <aside class="sidebar rigth">
