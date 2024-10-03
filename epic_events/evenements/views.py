@@ -41,16 +41,16 @@ class EvenementDeleteView(DeleteView):
 
 
 def upcoming_events():
-    today = date(dt.now())
-    ten_next_events = Evenement.objects.filter(date_debut__gte=today)[:10]
+    today = dt.now().strftime("%Y-%m-%d")
+    ten_next_events = Evenement.objects.filter(date_debut__gte=today).values()[:10]
     return ten_next_events
 
 
 def employee_events(employee_id, num=-1):
-    filtered_events = Evenement.objects.filter(collaborateur_id=employee_id).order_by("-date_debut")[:num]
+    filtered_events = Evenement.objects.filter(collaborateur_id=employee_id).order_by("-date_debut").values()[:num]
     return filtered_events
 
 
 def events_without_support(num=-1):
-    events = Evenement.objects.filter(collaborateur_support_id=None)[:num]
+    events = Evenement.objects.filter(collaborateur_support_id=None).values()[:num]
     return events
