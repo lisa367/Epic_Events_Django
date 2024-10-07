@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
+from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from evenements.views import upcoming_events, employee_events, events_without_support
@@ -33,10 +34,18 @@ class EmployeeDeleteView(DeleteView):
     template_name = "employee/update.html"
 
 
+class EmployeeDetailView(ListView):
+    model = Employee
+    template_name = "employee/details.html"
+    context_object_name = "employee"
+    queryset = Employee.objects.only("id", "employee_ref", "nom", "prenom", "departement", "role", "email")
+
+
 class EmployeeListView(ListView):
     model = Employee
-    template_name = "employee/employees_list.html"
+    template_name = "employee/list.html"
     context_object_name = "employees"
+    queryset = Employee.objects.only("id", "employee_ref", "nom", "prenom", "departement", "role", "email")
 
 
 def new_employee_view(request, *args, **kwargs):
