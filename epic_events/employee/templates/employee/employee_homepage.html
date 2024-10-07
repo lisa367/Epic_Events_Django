@@ -8,20 +8,37 @@
 <h1>My Homepage</h1>
 
 
-    <h2>Mes Dernières Entrées</h2>
+<h2>Mes Dernières Entrées</h2>
 
-    <table class="custom-data"></table>
-        {% for tuple in employee_data %}
-        <tr>
-            {% for val in tuple %}
-            <td>{{ val|title }}</td>
-            {% endfor %}
-        </tr>
-        {% endfor %}
-        <tr>
-            <td><a href="{% url url_1 %}">Voir plus</a></td>
-        </tr>
-    </table>
+<table class="custom-data">
+    {% for x in employee %}
+    <tr>
+        <td>#ref</td>
+        <td>{{ x.employee_ref }}</td>
+    </tr>
+    <tr>
+        <td>Nom</td>
+        <td>{{ x.nom }}</td>
+    </tr>
+    <tr>
+        <td>Prénom</td>
+        <td>{{ x.prenom }}</td>
+    </tr>
+    <tr>
+        <td>Départment</td>
+        <td>{{ x.departement }}</td>
+    </tr>
+    <tr>
+        <td>Rôle</td>
+        <td>{{ x.role }}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ x.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url url_1 %}">Voir plus</a>
 
 
 </section>
