@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from evenements.views import upcoming_events, employee_events, events_without_support
@@ -9,18 +8,6 @@ from contrats.views import employee_contrats, contract_without_commercial
 
 from .models import Employee
 from .forms import EmployeeForm, EmployeePasswordForm
-
-
-class EmployeeListView(ListView):
-    model = Employee
-    template_name = "employee/employees_list.html"
-    context_object_name = "employees"
-
-
-class EmployeeDetailView(DetailView):
-    model = Employee
-    template_name = "employee/employee_detail.html"
-    context_object_name = "employee"
 
 
 class EmployeeCreateView(CreateView):
@@ -41,9 +28,15 @@ class EmployeePasswordUpdateView(UpdateView):
     form_class = EmployeePasswordForm
 
 
-class EmployeeDeleteView(UpdateView):
+class EmployeeDeleteView(DeleteView):
     model = Employee
     template_name = "employee/update.html"
+
+
+class EmployeeListView(ListView):
+    model = Employee
+    template_name = "employee/employees_list.html"
+    context_object_name = "employees"
 
 
 def new_employee_view(request, *args, **kwargs):
@@ -93,3 +86,10 @@ def employee_homepage(request, *args, **kwargs):
         context_data["url_2"] = 'contracts:unassigned'
     """
     return render(request, "employee/employee_homepage.html", context=context_data)
+
+# @login_required
+def profile_page(request, *args, **kwargs):
+    context = {}
+    context["employee"] = Employee.objects.filter(id=request.user.id).values()
+    #print(context["employee"])
+    return render(request, "employee/profile.html", context=context)
