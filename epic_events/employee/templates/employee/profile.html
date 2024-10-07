@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Homepage{% endblock %}
+
+
+{% block content %}
+<h1>Ma Homepage</h1>
+
+
+<h2>Mes Dernières Entrées</h2>
+
+<table class="user-profile">
+    {% for x in employee %}
+    <tr>
+        <td>#ref</td>
+        <td>{{ x.employee_ref }}</td>
+    </tr>
+    <tr>
+        <td>Nom</td>
+        <td>{{ x.nom }}</td>
+    </tr>
+    <tr>
+        <td>Prénom</td>
+        <td>{{ x.prenom }}</td>
+    </tr>
+    <tr>
+        <td>Départment</td>
+        <td>{{ x.departement }}</td>
+    </tr>
+    <tr>
+        <td>Rôle</td>
+        <td>{{ x.role }}</td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td>{{ x.email }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url employee:profile_page %}">Modifier le mot de passe</a>
+
+
+</section>
+
+<aside class="sidebar rigth">
+    <h2>Évènements à venir</h2>
+    {% for event in last_five_events %}
+    <div class="event">
+        <h3>{{ event.nom_evenement }}</h3>
+        <p>{{ event.date_debut }}</p>
+        <p>{{ event.date_fin }}</p>
+        <p>{{ event.lieu }}</p>
+        <p>{{ event.nom_client }}</p>
+        <a href="">Voir détails</a>
+    </div>
+    {% endfor %}
+</aside>
+
+{% endblock %}
