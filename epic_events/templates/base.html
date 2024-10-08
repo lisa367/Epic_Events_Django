@@ -5,6 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title %}Epic Events{% endblock %}</title>
 </head>
 
@@ -15,22 +16,24 @@
         {% else %}
         <a href="{% url 'employee:homepage' %}">Homepage</a>
         <a href="{% url 'queries' %}">Queries</a>
-        <a href="{% url 'employee:profile_page' %}">My Profile</a>
+        <a href="{% url 'employee:profile_page' %}">Mon Profil</a>
         <a href="{% url 'logout' %}">Logout</a>
         {% endif %}
     </nav>
 
-    {% if request.user.is_authenticated %}
-    <aside class="sidebar left">
-        <a href="">{{ request.user.name }}</a>
-        <a href="">Evenements</a>
-        <a href="">Clients</a>
-        <a href="">Contrats</a>
-        <a href="">Collaborateurs</a>
-        <a href="">Statistiques</a>
-    </aside>
-    {% endif %}
-    {% block content %}{% endblock %}
+    <div class="main">
+        {% if request.user.is_authenticated %}
+        <aside class="sidebar left">
+            <a href="">{{ request.user.name }}</a>
+            <a href="">Evenements</a>
+            <a href="">Clients</a>
+            <a href="">Contrats</a>
+            <a href="">Collaborateurs</a>
+            <a href="">Statistiques</a>
+        </aside>
+        {% endif %}
+        {% block content %}{% endblock %}
+    </div>
 </body>
 
 </html>
