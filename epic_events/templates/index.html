@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Welcome to the Epic Events CRM</h1>
-
-<form action="" method="POST">
-    {% csrf_token %}
-    {{ form.as_table }}
-    <input type="submit" value="Login">
-</form>
-
+<div class="content">
+    <h1>Bienvenue sur Epic Events CRM</h1>
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_table }}
+        <input type="submit" value="Login">
+    </form>
+</div>
 {% endblock %}
