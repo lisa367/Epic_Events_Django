@@ -1,23 +1,25 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Liste des Collaborateurs</h1>
-<table>
-    <th>
-        <td>Nom</td>
-        <td>Prénom</td>
-        <td>Département</td>
-        <td>Rôle</td>
-        <td>Email</td>
-    </th>
-    {% for x in employees %}
-    <tr>
-        <td>{{ x.nom }}</td>
-        <td>{{ x.prenom }}</td>
-        <td>{{ x.departement }}</td>
-        <td>{{ x.role }}</td>
-        <td>{{ x.email }}</td>
-    </tr>
-    {% endfor %}
-</table>
+<div class="content">
+    <h1>Liste des Collaborateurs</h1>
+    <table>
+        <th>
+            <td>Nom</td>
+            <td>Prénom</td>
+            <td>Département</td>
+            <td>Rôle</td>
+            <td>Email</td>
+        </th>
+        {% for x in employees %}
+        <tr>
+            <td>{{ x.nom }}</td>
+            <td>{{ x.prenom }}</td>
+            <td>{{ x.departement }}</td>
+            <td>{{ x.role }}</td>
+            <td>{{ x.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
 {% endblock %}
