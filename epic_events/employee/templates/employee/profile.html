@@ -1,47 +1,44 @@
 {% extends 'base.html' %}
 
 
-{% block title %}Homepage{% endblock %}
+{% block title %}Mon profil{% endblock %}
 
 
 {% block content %}
-<h1>Ma Homepage</h1>
-
-
-<h2>Mes Dernières Entrées</h2>
-
-<table class="user-profile">
-    {% for x in employee %}
-    <tr>
-        <td>#ref</td>
-        <td>{{ x.employee_ref }}</td>
-    </tr>
-    <tr>
-        <td>Nom</td>
-        <td>{{ x.nom }}</td>
-    </tr>
-    <tr>
-        <td>Prénom</td>
-        <td>{{ x.prenom }}</td>
-    </tr>
-    <tr>
-        <td>Départment</td>
-        <td>{{ x.departement }}</td>
-    </tr>
-    <tr>
-        <td>Rôle</td>
-        <td>{{ x.role }}</td>
-    </tr>
-    <tr>
-        <td>Email</td>
-        <td>{{ x.email }}</td>
-    </tr>
-    {% endfor %}
-</table>
-<a href="{% url employee:profile_page %}">Modifier le mot de passe</a>
-
-
+<div class="content">
+    <h1>Mes Informations</h1>
+    <section>
+    <table class="user-profile">
+        {% for x in employee %}
+        <tr>
+            <td>#ref</td>
+            <td>{{ x.employee_ref }}</td>
+        </tr>
+        <tr>
+            <td>Nom</td>
+            <td>{{ x.nom }}</td>
+        </tr>
+        <tr>
+            <td>Prénom</td>
+            <td>{{ x.prenom }}</td>
+        </tr>
+        <tr>
+            <td>Départment</td>
+            <td>{{ x.departement }}</td>
+        </tr>
+        <tr>
+            <td>Rôle</td>
+            <td>{{ x.role }}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{ x.email }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'employee:update_pwd' %}">Modifier le mot de passe</a>
 </section>
+</div>
 
 <aside class="sidebar rigth">
     <h2>Évènements à venir</h2>
