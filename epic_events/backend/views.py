@@ -50,7 +50,7 @@ class AppListView(ListView):
 
 class AppCreateView(CreateView, PermissionRequiredMixin):
     model = ''
-    template_name = 'templates/base_create.html'
+    template_name = 'base_create.html'
     context_object_name = ''
     form_class = ''
     permission_required = ''
@@ -64,7 +64,7 @@ class AppCreateView(CreateView, PermissionRequiredMixin):
 
 class AppUpdateView(UpdateView, PermissionRequiredMixin):
     model = ''
-    template_name = 'templates/base_update.html'
+    template_name = 'base_update.html'
     context_object_name = ''
     form_class = ''
     permission_required = ''
@@ -78,7 +78,7 @@ class AppUpdateView(UpdateView, PermissionRequiredMixin):
 
 class AppDeleteView(DeleteView, PermissionRequiredMixin):
     model = ''
-    template_name = 'templates/base_delete.html'
+    template_name = 'base_delete.html'
     context_object_name = ''
     permission_required = ''
 
