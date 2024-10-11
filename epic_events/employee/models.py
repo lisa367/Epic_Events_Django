@@ -63,7 +63,7 @@ class Employee(AbstractUser):
     role = models.CharField(max_length=256, blank=True)
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=128, verbose_name="mot de passe")
-    photo = models.ImageField(upload_to=None, blank=True)
+    photo = models.ImageField(upload_to="photos/", blank=True)
 
     USERNAME_FIELD = "employee_ref"
     REQUIRED_FIELDS = ["prenom", "nom", "departement"]

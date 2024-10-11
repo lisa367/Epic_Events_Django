@@ -7,13 +7,13 @@ from contrats.models import Contrat
 Employee = get_user_model()
 
 class Evenement(models.Model):
-    nom_evenement = models.CharField(max_length=256)
+    nom_evenement = models.CharField(max_length=256, verbose_name="évènement")
     lieu = models.CharField(max_length=256)
     nom_client = models.CharField(max_length=256)
     email_client = models.EmailField(blank=True)
-    date_debut = models.DateTimeField()
-    date_fin = models.DateTimeField()
-    nombre_invites = models.IntegerField(default=0)
+    date_debut = models.DateTimeField(verbose_name="date de début")
+    date_fin = models.DateTimeField(verbose_name="date de fin")
+    nombre_invites = models.IntegerField(default=0, verbose_name="nombre d'invités")
     commentaire = models.TextField(blank=True)
     contact_support = models.CharField(max_length=128, blank=True)
     contrat_id = models.ForeignKey(Contrat, on_delete=models.DO_NOTHING)
