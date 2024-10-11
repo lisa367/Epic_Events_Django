@@ -29,11 +29,11 @@
     <div class="main">
         {% if request.user.is_authenticated %}
         <aside class="sidebar left">
-            <a href="">{{ request.user.name }}</a>
-            <a href="">Evenements</a>
-            <a href="">Clients</a>
-            <a href="">Contrats</a>
-            <a href="">Collaborateurs</a>
+            <p>{{ request.user.prenom }} {{ request.user.nom|upper }}</p>
+            <a href="{% url 'evenements:list_events' %}">Evenements</a>
+            <a href="{% url 'clients:list_clients' %}">Clients</a>
+            <a href="{% url 'contrats:list_contracts' %}">Contrats</a>
+            <a href="{% url 'employee:list_employees' %}">Collaborateurs</a>
             <a href="">Statistiques</a>
         </aside>
         {% endif %}
