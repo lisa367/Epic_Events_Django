@@ -33,12 +33,10 @@ SECRET_KEY = "350+ct_p&dfh1fxcmy89g0ta(9li(*(6qh)40h3w&p7bae@upl"
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
  """
-ALLOWED_HOSTS = []
-
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
 DEBUG = os.environ.get("DEBUG") == "True"
-# ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS')
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS').split(",")
 DSN = os.environ.get("DSN")
 
 # print(f"DEBUG = {DEBUG}")
