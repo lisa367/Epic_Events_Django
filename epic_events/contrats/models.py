@@ -15,7 +15,7 @@ class Contrat(models.Model):
     contact_commercial = models.CharField(max_length=128)
     montant_facture = models.DecimalField(default=0.0, max_digits=6, decimal_places=2)
     montant_redevable = models.DecimalField(default=0.0, max_digits=6, decimal_places=2)
-    date_creation = models.DateField()
+    date_creation = models.DateField(auto_now_add=True, verbose_name="date de création")
     statut = models.CharField(max_length=256, choices=CHOIX_STATUT , default="unsigned")
     client_id = models.ForeignKey(Client, on_delete=models.DO_NOTHING, blank=True)
     collaborateur_id = models.ForeignKey(Employee, on_delete=models.SET_DEFAULT, default=1, blank=True)
