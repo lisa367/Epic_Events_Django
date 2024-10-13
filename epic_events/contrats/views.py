@@ -18,22 +18,6 @@ class ContratListView(ListView):
     context_object_name = "contrats"
 
 
-class ContratCreateView(CreateView):
-    model = Contrat
-    template_name = "contrats/create.html"
-    form_class = ''
-
-
-class ContratUpdateView(UpdateView):
-    model = Contrat
-    template_name = "contrats/update.html"
-
-
-class ContratDeleteView(DeleteView):
-    model = Contrat
-    template_name = "contrats/delete.html"
-
-
 def employee_contrats(user_id):
     filtered_contrats = Contrat.objects.filter(client_id__collaborateur_id=user_id)
     return filtered_contrats
@@ -56,3 +40,6 @@ def unpaid_contracts(user_id):
 def filter_contracts(filters_args):
     filtered_contracts = Contrat.objects.filter(**filters_args)
     return filtered_contracts
+
+def generic(request):
+    pass
