@@ -18,22 +18,9 @@ class ClientListView(ListView):
     context_object_name = "clients"
 
 
-class ClientCreateView(CreateView):
-    model = Client
-    template_name = "clients/create.html"
-    form_class = ''
-
-
-class ClientUpdateView(UpdateView):
-    model = Client
-    template_name = "clients/update.html"
-
-
-class ClientDeleteView(DeleteView):
-    model = Client
-    template_name = "clients/delete.html"
-
-
 def employee_clients(employee_id):
     filtered_clients = Client.objects.filter(collaborateur_id=employee_id)
     return filtered_clients
+
+def generic(request):
+    pass
