@@ -6,12 +6,6 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Evenement
 
-class EvenementDetailView(DetailView):
-    model = Evenement
-    template_name = 'evenements/evenement.html'
-    context_object_name = "evenement"
-
-
 class EvenementListView(ListView):
     model = Evenement
     template_name = "evenements/evenements_list.html"
@@ -22,23 +16,6 @@ class EvenementListView(ListView):
         clients = Evenement.objects.filter(collaborateur_id=self.request.user.id)
 
         return clients
-
-
-class EvenementCreateView(CreateView):
-    model = Evenement
-    template_name = "evenements/create.html"
-    form_class = ''
-
-
-class EvenementUpdateView(UpdateView):
-    model = Evenement
-    template_name = "evenements/update.html"
-
-
-class EvenementDeleteView(DeleteView):
-    model = Evenement
-    template_name = "evenements/delete.html"
-
 
 def upcoming_events():
     today = dt.now().strftime("%Y-%m-%d")
@@ -54,3 +31,7 @@ def employee_events(employee_id, num=-1):
 def events_without_support(num=-1):
     events = Evenement.objects.filter(collaborateur_support_id=None).values()[:num]
     return events
+
+
+def generic(request):
+    pass
