@@ -45,7 +45,7 @@ class EmployeeListView(ListView):
     model = Employee
     template_name = "employee/list.html"
     context_object_name = "employees"
-    queryset = Employee.objects.only("id", "employee_ref", "nom", "prenom", "departement", "role", "email")
+    queryset = Employee.objects.only("id", "employee_ref", "nom", "prenom", "departement", "role", "email")[:30]
 
 
 def new_employee_view(request, *args, **kwargs):
