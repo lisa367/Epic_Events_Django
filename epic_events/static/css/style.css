@@ -36,7 +36,8 @@ nav {
 }
 
 .sidebar a,
-nav a {
+nav a,
+#logo {
     color: white;
 }
 
