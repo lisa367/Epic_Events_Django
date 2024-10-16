@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -15,23 +16,27 @@ class EmployeeCreateView(CreateView):
     model = Employee
     template_name = "employee/create.html"
     form_class = EmployeeForm
+    success_url = reverse_lazy("homepage")
 
 
 class EmployeeUpdateView(UpdateView):
     model = Employee
     template_name = "employee/update.html"
     form_class = EmployeeForm
+    success_url = reverse_lazy("homepage")
 
 
 class EmployeePasswordUpdateView(UpdateView):
     model = Employee
     template_name = "employee/update_password.html"
     form_class = EmployeePasswordForm
+    success_url = reverse_lazy("homepage")
 
 
 class EmployeeDeleteView(DeleteView):
     model = Employee
     template_name = "employee/update.html"
+    success_url = reverse_lazy("homepage")
 
 
 class EmployeeDetailView(ListView):
