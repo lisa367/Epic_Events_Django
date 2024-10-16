@@ -27,7 +27,8 @@ class CustomUserManager(UserManager):
         user.employee_ref = str(user.id).zfill(5)
         temp_password = user.employee_ref if "password" not in extra_fields else extra_fields.get("password")
         user.password = make_password(temp_password)
-        print(user.password)
+        #print(user.password)
+        print(user.employee_ref)
         user.save(using=self._db)
         return user
     
@@ -79,4 +80,4 @@ class Employee(AbstractUser):
 
     class Meta:
         verbose_name = "Collaborateur"
-        verbose_name_plural = "Collaborateurs"
+        #verbose_name_plural = "Collaborateurs"
