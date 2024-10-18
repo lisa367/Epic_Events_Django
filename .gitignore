@@ -3,3 +3,4 @@
 **/__pycache__
 **/._migrations*
 **/migrations 14-52-*
+**/static/photos/*
