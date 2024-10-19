@@ -4,7 +4,7 @@ from django.forms.models import ModelForm
 from .models import Employee
 
 
-class EmployeeForm(ModelForm):
+class EmployeeForm(UserCreationForm):
     class Meta:
         model = Employee
         fields = ["prenom", "nom", "departement", "role", "photo"]
