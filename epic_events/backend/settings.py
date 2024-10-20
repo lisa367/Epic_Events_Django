@@ -171,7 +171,7 @@ logging.basicConfig(level=logging.WARNING)
 
 """ 
 sentry_sdk.init(
-    dsn=DSN,
+    dsn=os.environ.get(DSN),
     # ...
     integrations=[
         DjangoIntegration(
