@@ -103,19 +103,7 @@ DATABASES = {
     }
 }
 
-""" 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": "epic_events",
-        "USER": "admin",
-        "PASSWORD": "admin1234",
-        "HOST": "127.0.0.1",
-        "PORT": "5432",
 
-    }
-}
-"""
 """ 
 DATABASES = {
     "default": {
