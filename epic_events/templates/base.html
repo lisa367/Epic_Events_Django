@@ -21,6 +21,7 @@
             <a href="{% url 'employee:homepage' %}">Homepage</a>
             <a href="{% url 'queries' %}">Queries</a>
             <a href="{% url 'employee:profile_page' %}">Mon Profil</a>
+            {% if request.user.nom == 'Epicadmin' %}<a href="{% url 'admin:index' %}">Admin</a>{% endif %}
             <a href="{% url 'logout' %}">Logout</a>
             {% endif %}
         </div>
