@@ -23,7 +23,7 @@ from .views import query_table, choose_table, index, logout_view
 
 urlpatterns = [
     path("", index, name="index"),
-    path("logout/  ", logout_view, name="logout"),
+    path("logout/", logout_view, name="logout"),
     path("epic-admin/", admin.site.urls),
     path("employee/", include("employee.urls")),
     path("clients/", include("clients.urls")),
