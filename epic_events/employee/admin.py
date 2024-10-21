@@ -3,7 +3,7 @@ from django.contrib import admin
 from .models import Employee
 
 class EmployeeAdmin(admin.ModelAdmin):
-    fields = ["nom", "prenom", "departement", "role", "email", "photo"]
+    fields = ["nom", "prenom", "departement", "role", "photo"]
     readonly_fields = ("id", "employee_ref", "password")
 
 # Register your models here.
