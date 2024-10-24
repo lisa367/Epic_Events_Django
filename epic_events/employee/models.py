@@ -24,6 +24,7 @@ class CustomUserManager(UserManager):
         email = f"{prenom.lower()}.{nom.lower()}@epicevents.com"
         email = self.normalize_email(email)
         user.email = email
+        print(user.id)
         user.employee_ref = str(user.id).zfill(5)
         user.username = user.employee_ref
         temp_password = user.employee_ref if "password" not in extra_fields else extra_fields.get("password")
@@ -31,6 +32,7 @@ class CustomUserManager(UserManager):
         #print(user.password)
         print(user.employee_ref)
         user.save(using=self._db)
+        print(user.id)
         return user
     
     def create_user(self, prenom, nom, departement, **extra_fields):
