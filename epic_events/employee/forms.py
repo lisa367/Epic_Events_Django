@@ -8,6 +8,7 @@ class EmployeeForm(UserCreationForm):
     class Meta:
         model = Employee
         fields = ["prenom", "nom", "departement", "role", "photo"]
+        exclude = ['password']
 
 
 class EmployeePasswordForm(ModelForm):
