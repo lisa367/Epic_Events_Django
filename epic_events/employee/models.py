@@ -25,6 +25,7 @@ class CustomUserManager(UserManager):
         email = self.normalize_email(email)
         user.email = email
         user.employee_ref = str(user.id).zfill(5)
+        user.username = user.employee_ref
         temp_password = user.employee_ref if "password" not in extra_fields else extra_fields.get("password")
         user.password = make_password(temp_password)
         #print(user.password)
