@@ -12,6 +12,10 @@ class EmployeeAdmin(admin.ModelAdmin):
                 form.cleaned_data['nom'],
                 form.cleaned_data['prenom'],
                 form.cleaned_data['departement'],
+                {
+                    "role" : form.cleaned_data['role'],
+                    "photo" : form.cleaned_data['photo'],
+                }
             )
         return super().save_form(request, form, change)
 
