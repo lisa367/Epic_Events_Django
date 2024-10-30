@@ -16,7 +16,7 @@ class EmployeeCreateView(CreateView):
     model = Employee
     template_name = "employee/create.html"
     form_class = EmployeeForm
-    success_url = reverse_lazy("homepage")
+    success_url = reverse_lazy("employee:homepage")
 
 
 class EmployeeUpdateView(UpdateView):
