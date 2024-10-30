@@ -30,7 +30,7 @@ class EmployeePasswordUpdateView(UpdateView):
     model = Employee
     template_name = "employee/update_password.html"
     form_class = EmployeePasswordForm
-    success_url = reverse_lazy("homepage")
+    success_url = reverse_lazy("employee:homepage")
 
 
 class EmployeeDeleteView(DeleteView):
