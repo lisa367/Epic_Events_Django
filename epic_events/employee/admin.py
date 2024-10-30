@@ -6,7 +6,7 @@ class EmployeeAdmin(admin.ModelAdmin):
     fields = ["nom", "prenom", "departement", "role", "photo"]
     readonly_fields = ("id", "employee_ref")
 
-    def save_form(self, request, form, change):
+    def save_form(self, request, form, change=True):
         if not change:
             form.instance = self.model.objects.create_user(
                 form.cleaned_data['nom'],
