@@ -36,7 +36,7 @@ class EmployeePasswordUpdateView(UpdateView):
 class EmployeeDeleteView(DeleteView):
     model = Employee
     template_name = "employee/update.html"
-    success_url = reverse_lazy("homepage")
+    success_url = reverse_lazy("employee:homepage")
 
 
 class EmployeeDetailView(ListView):
