@@ -23,7 +23,7 @@ class EmployeeUpdateView(UpdateView):
     model = Employee
     template_name = "employee/update.html"
     form_class = EmployeeForm
-    success_url = reverse_lazy("homepage")
+    success_url = reverse_lazy("employee:homepage")
 
 
 class EmployeePasswordUpdateView(UpdateView):
