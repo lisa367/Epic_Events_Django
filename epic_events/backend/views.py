@@ -40,11 +40,13 @@ class AppListView(ListView):
     context_object_name = ''
     form_class = ''
     title = ''
+    obj_list = ''
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["title"] = self.title
         context["object_name"] = self.context_object_name
+        context["obj_list"] = self.obj_list
         return context
 
 
