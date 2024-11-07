@@ -1,3 +1,9 @@
 {% extends 'base.html' %}
 
 <h1>Liste des {{ object_name }}s</h1>
+
+<table>
+    {% for item in obj_list %}
+    <tr></tr>
+    {% endfor %}
+</table>
