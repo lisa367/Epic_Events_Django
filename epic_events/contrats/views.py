@@ -8,7 +8,7 @@ from .models import Contrat
 
 class ContratDetailView(DetailView):
     model = Contrat
-    template_name = 'contrats/contrat.html'
+    template_name = 'contrats/contrat_detail.html'
     context_object_name = "contrat"
 
 
