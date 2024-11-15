@@ -2,7 +2,7 @@ from django.urls import path
 
 from backend.views import AppCreateView, AppUpdateView, AppDeleteView
 from .views import ContratListView, ContratDetailView
-from .views import generic
+# from .views import generic
 from .models import Contrat
 from .forms import ContratForm
 
