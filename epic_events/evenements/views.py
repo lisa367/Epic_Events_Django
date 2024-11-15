@@ -6,6 +6,11 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Evenement
 
+class EvenementDetailView(DetailView):
+    model = Evenement
+    template_name = "evenements/evenement_detail.html"
+    context_object_name = "evenement"
+
 class EvenementListView(ListView):
     model = Evenement
     template_name = "evenements/evenements_list.html"
