@@ -1,7 +1,7 @@
 from django.urls import path
 
 from backend.views import AppCreateView, AppUpdateView, AppDeleteView
-# from .views import ContratDetailView, ContratCreateView, ContratUpdateView ,ContratDeleteView
+from .views import ContratListView, ContratDetailView
 from .views import generic
 from .models import Contrat
 from .forms import ContratForm
@@ -17,5 +17,5 @@ urlpatterns = [
     path("edit_entry/<int:id>", AppUpdateView.as_view(model=Contrat, context_object_name="contrat", form_class=ContratForm), name="edit_contrat"),
     path("delete_entry/<int:id>", AppDeleteView.as_view(model=Contrat, context_object_name="ce contrat"), name="delete_contrat"),
     path("details/<int:id>", generic, name="delete_contracts"),
-    path("list/",  generic, name="list_contracts"),
+    path("list/",  ContratListView.as_view(), name="list_contracts"),
 ]
