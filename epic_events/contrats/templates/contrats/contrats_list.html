@@ -5,14 +5,14 @@
 <table>
     {% for contrat in contrats %}
     <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>{{ contrat.id }}</td>
+        <td>{{ contrat.date_creation }}</td>
+        <td>{{ contrat.statut }}</td>
+        <td>{{ contrat.client_id }}</td>
+        <td>{{ contrat.montant_facture }}</td>
+        <td>{{ contrat.montant_redevable }}</td>
+        <td>{{ contrat.collaborateur_id }}</td>
+        <td><a href=""></a></td>
     </tr>
     {% endfor %}
 </table>
