@@ -13,7 +13,7 @@
         <td>{{ contrat.montant_facture }}</td>
         <td>{{ contrat.montant_redevable }}</td>
         <td>{{ contrat.collaborateur_id }}</td>
-        <td><a href="">Détails</a></td>
+        <td><a href="{% url 'contrats:details_contract' %}">Détails</a></td>
     </tr>
     {% endfor %}
 </table>
