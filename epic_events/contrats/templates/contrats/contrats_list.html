@@ -14,6 +14,10 @@
         <td>{{ contrat.montant_redevable }}</td>
         <td>{{ contrat.collaborateur_id }}</td>
         <td><a href="{% url 'contrats:details_contract' %}">Détails</a></td>
+        {% if %}
+        <td><a href="{% url 'contrats:edit_contract' %}">Modifier</a></td>
+        <td><a href="{% url 'contrats:delete_contract' %}">Supprimer</a></td>
+        {% endif %}
     </tr>
     {% endfor %}
 </table>
