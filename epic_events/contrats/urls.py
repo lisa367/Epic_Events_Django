@@ -16,6 +16,6 @@ urlpatterns = [
     path("new_entry/", AppCreateView.as_view(model=Contrat, context_object_name="contrat", form_class=ContratForm), name="new_contrat"),
     path("edit_entry/<int:id>", AppUpdateView.as_view(model=Contrat, context_object_name="contrat", form_class=ContratForm), name="edit_contrat"),
     path("delete_entry/<int:id>", AppDeleteView.as_view(model=Contrat, context_object_name="ce contrat"), name="delete_contrat"),
-    path("details/<int:id>", ContratDetailView.as_view(), name="delete_contracts"),
+    path("details/<int:id>", ContratDetailView.as_view(), name="details_contract"),
     path("list/",  ContratListView.as_view(), name="list_contracts"),
 ]
