@@ -11,12 +11,29 @@
 {% block content %} 
     <h1> Contract for client : {{  contrat.client_id.nom_complet }}</h1>
     <table>
-        {% for key, value in data %}
+        <th>
+            <td>N°id</td>
+            <td>Client</td>
+            <td>Evènement</td>
+            <td>Date de création</td>
+            <td>Montant facture</td>
+            <td>Montant redevable</td>
+            <td>Statut</td>
+            <td>Contact Commercial</td>
+            <td>Collaborateur référent</td>
+        </th>
         <tr>
-            <td>{{ key.title() }}</td>
-            <td>{{ value }}</td>
+            <td>{{ contrat.id }}</td>
+            <td>{{ contrat.client_id.nom_complet }}</td>
+            <td>{{ event }}</td>
+            <td>{{ contrat.date_creation }}</td>
+            <td>{{ contrat.montant_facture }}</td>
+            <td>{{ contrat.montant_redevable }}</td>
+            <td>{{ contrat.statut }}</td>
+            <td>{{ contrat.contact_commercial }}</td>
+            <td>{{ contrat.client_id.nom_complet }}</td>
+            <td>{{ contrat.client_id.collaborateur_id.prenom }} {{ contrat.client_id.collaborateur_id.nom|upper }}</td>
         </tr>
-        {% endfor %}
     </table>
 
 
