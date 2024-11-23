@@ -4,7 +4,7 @@ from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from .models import Contrat
-
+from evenements.models import Evenement
 
 class ContratDetailView(DetailView):
     model = Contrat
@@ -14,7 +14,7 @@ class ContratDetailView(DetailView):
     def get_context_data(self, **kwargs):
         # return super().get_context_data(**kwargs)
         context = super().get_context_data(**kwargs)
-        context["event"] = ''
+        context["event"] = Evenement.objects.filter(f"contrat_id={self.id}")
         return context
 
 
