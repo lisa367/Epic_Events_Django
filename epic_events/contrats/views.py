@@ -11,6 +11,12 @@ class ContratDetailView(DetailView):
     template_name = 'contrats/contrat_detail.html'
     context_object_name = "contrat"
 
+    def get_context_data(self, **kwargs):
+        # return super().get_context_data(**kwargs)
+        context = super().get_context_data(**kwargs)
+        context["event"] = ''
+        return context
+
 
 class ContratListView(ListView):
     model = Contrat
