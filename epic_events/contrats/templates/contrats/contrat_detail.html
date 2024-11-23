@@ -11,7 +11,7 @@
 {% block content %} 
     <h1> Contract for client : {{  contrat.client_id.nom_complet }}</h1>
     <table>
-        {% for key, value in client %}
+        {% for key, value in data %}
         <tr>
             <td>{{ key.title() }}</td>
             <td>{{ value }}</td>
