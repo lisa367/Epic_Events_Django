@@ -35,7 +35,9 @@
             <td>{{ contrat.client_id.collaborateur_id.prenom }} {{ contrat.client_id.collaborateur_id.nom|upper }}</td>
         </tr>
     </table>
+    {% if request.user.departement == 'Commercial' %}
     <a href="{% url 'contrats:edit_contrat' %}">Modifier</a>
     <a href="{% url 'contrats:delete_contrat' %}">Supprimer</a>
+    {% endif %}
 
 {% endblock %}
