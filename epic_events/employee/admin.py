@@ -9,13 +9,13 @@ class EmployeeAdmin(admin.ModelAdmin):
     def save_form(self, request, form, change=True):
         if not change:
             form.instance = self.model.objects.create_user(
-                form.cleaned_data['prenom'],
-                form.cleaned_data['nom'],
-                form.cleaned_data['departement'],
                 {
                     "role" : form.cleaned_data['role'],
                     "photo" : form.cleaned_data['photo'],
-                }
+                },
+                prenom=form.cleaned_data['prenom'],
+                nom=form.cleaned_data['nom'],
+                departement=form.cleaned_data['departement'],
             )
         return super().save_form(request, form, change)
 
