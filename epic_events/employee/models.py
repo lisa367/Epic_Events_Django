@@ -24,7 +24,8 @@ class CustomUserManager(UserManager):
         email = f"{prenom.lower()}.{nom.lower()}@epicevents.com"
         email = self.normalize_email(email)
         user.email = email
-        user.employee_ref = str(user.id).zfill(5)
+        #user.employee_ref = str(user.id).zfill(5)
+        user.employee_ref = '00000'
         user.username = user.employee_ref
         temp_password = user.employee_ref if "password" not in extra_fields else extra_fields.get("password")
         user.password = make_password(temp_password)
