@@ -25,21 +25,18 @@ class CustomUserManager(UserManager):
         email = self.normalize_email(email)
         user.email = email
         #user.employee_ref = str(user.id).zfill(5)
-        user.employee_ref = '00000'
-        user.username = user.employee_ref
+        user.employee_ref = user.username = '00000'
+        # user.username = user.employee_ref
         temp_password = user.employee_ref if "password" not in extra_fields else extra_fields.get("password")
         user.password = make_password(temp_password)
-        #print(user.password)
         print(user.employee_ref)
         user.save(using=self._db)
-        print(user.id)
         return user
     
     def create_user(self, prenom, nom, departement, **extra_fields):
         extra_fields.setdefault("is_staff", False)
         extra_fields.setdefault("is_superuser", False)
-        self._create_user(prenom, nom, departement, **extra_fields)
-        #return self._create_user(prenom, nom, departement, **extra_fields)
+        return self._create_user(prenom, nom, departement, **extra_fields)
 
     def create_superuser(self, prenom, nom, departement, **extra_fields):
         extra_fields.setdefault("is_staff", True)
