@@ -7,6 +7,6 @@ User = get_user_model()
 @receiver(post_save, sender=User)
 def create_custom_employee_ref(sender, instance, created, **kwargs):
     if created:
-        instance.employee_ref = str(instance.id).zfill(5)
-        instance.username = instance.employee_ref
+        instance.employee_ref = instance.username = str(instance.id).zfill(5)
+        #instance.username = instance.employee_ref
         instance.save()
