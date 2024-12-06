@@ -73,7 +73,7 @@ def employee_homepage(request, *args, **kwargs):
 
     context_data["employee"] = Employee.objects.filter(id=request.user.id).values()
     # print(request.user.id)
-    print(context_data["employee"])
+    #print(context_data["employee"])
     
     user = context_data["employee"][0]
     context_data["url_1"] = 'employee:homepage'
