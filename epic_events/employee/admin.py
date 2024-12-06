@@ -4,7 +4,7 @@ from .models import Employee
 
 class EmployeeAdmin(admin.ModelAdmin):
     fields = ["nom", "prenom", "departement", "role", "photo"]
-    readonly_fields = ("id", "employee_ref")
+    #readonly_fields = ("id", "employee_ref")
 
     def save_form(self, request, form, change=True):
         if not change:
