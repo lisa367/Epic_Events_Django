@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
 
-# from employee.models import Employee
 from contrats.models import Contrat
 
 Employee = get_user_model()
