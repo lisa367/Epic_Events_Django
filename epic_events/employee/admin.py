@@ -15,7 +15,7 @@ class EmployeeAdmin(admin.ModelAdmin):
             )
         return super().save_form(request, form, change)
 
-# Register your models here.
+
 admin.site.register(Employee, EmployeeAdmin)
 
 """ 
