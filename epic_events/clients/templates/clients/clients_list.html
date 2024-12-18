@@ -9,12 +9,14 @@
     {% for client in clients %}
     <tr>
         <td>{{ client.id }}</td>
-        <td>{{ client. }}</td>
-        <td>{{ client. }}</td>
-        <td>{{ client. }}</td>
-        <td>{{ client. }}</td>
-        <td>{{ client. }}</td>
-        <td>{{ client. }}</td>
+        <td>{{ client.nom_complet }}</td>
+        <td>{{ client.email }}</td>
+        <td>{{ client.telephone }}</td>
+        <td>{{ client.nom_entreprise }}</td>
+        <td>{{ client.date_premier_contact }}</td>
+        <td>{{ client.date_dernier_contact }}</td>
+        <td>{{ client.contact_commercial }}</td>
+        <td>{{ client.collaborateur_id.prenom }} {{ client.collaborateur_id.nom }}</td>
         <td><a href="{% url 'clients:details_client' %}">Détails</a></td>
         {% if request.user.departement == 'Commercial' %}
         <td><a href="{% url 'clients:edit_client' %}">Modifier</a></td>
