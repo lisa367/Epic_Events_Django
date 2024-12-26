@@ -15,8 +15,10 @@
         <td>Premier contact</td>
         <td>Dernier contact</td>
         <td>Collaborateur référent</td>
+        {% if request.user.departement == 'Commercial' %}
         <td></td>
         <td></td>
+        {% endif %}
     </th>
     {% for client in clients %}
     <tr>
