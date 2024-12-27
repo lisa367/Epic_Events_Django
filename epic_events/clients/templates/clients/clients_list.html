@@ -16,8 +16,8 @@
         <td>Dernier contact</td>
         <td>Collaborateur référent</td>
         {% if request.user.departement == 'Commercial' %}
-        <td>Modifier</td>
-        <td>Supprimer</td>
+        <td>Modifier le client</td>
+        <td>Supprimer le client</td>
         {% endif %}
     </th>
     {% for client in clients %}
