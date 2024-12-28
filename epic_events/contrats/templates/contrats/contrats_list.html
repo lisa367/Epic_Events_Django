@@ -16,8 +16,10 @@
         <td></td>
         <td></td>
         <td></td>
-        <td></td>
-        <td></td>
+        {% if request.user.departement == 'Commercial' %}
+        <td>Modifier le contrat</td>
+        <td>Supprimer le contrat</td>
+        {% endif %}
     </th>
     <tr>
         <td>{{ contrat.id }}</td>
