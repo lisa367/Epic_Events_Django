@@ -8,14 +8,13 @@
 <table>
     {% for contrat in contrats %}
     <th>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>Id</td>
+        <td>Date de création</td>
+        <td>Statut</td>
+        <td>Id client</td>
+        <td>Montant facture</td>
+        <td>Montant redevable</td>
+        <td>Id collaborateur référent</td>
         {% if request.user.departement == 'Commercial' %}
         <td>Modifier le contrat</td>
         <td>Supprimer le contrat</td>
